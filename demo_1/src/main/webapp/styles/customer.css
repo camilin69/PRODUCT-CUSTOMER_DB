@@ -1,0 +1,25 @@
+body{
+    padding: 5%;
+
+}
+
+.container_search{
+    display: block;
+}
+
+.mb-3{
+    margin-top: 50px;
+    padding-left: 10%;
+    width: 95%;
+    height: 50px;
+    display: inline-flex;
+}
+
+.table-wrapper {
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.table {
+    width: 100%;
+}
