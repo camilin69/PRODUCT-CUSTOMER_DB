@@ -5,18 +5,20 @@ import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "servletConsumer", value = "/servlet-consumer")
+public class ServletConsumer extends HttpServlet {
     private String message;
 
+    public void setup(){
+
+    }
     public void init() {
-        message = "Hello World!";
+        setup();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
-        // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
