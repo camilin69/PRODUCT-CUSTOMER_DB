@@ -7,7 +7,7 @@ public class Product {
     private String name;
     private String unity;
     private String brand;
-    private String Company;
+    private String company;
     private double priceImplicit;
     private double priceExplicit;
 
@@ -18,7 +18,7 @@ public class Product {
         this.name = name;
         this.unity = unity;
         this.brand = brand;
-        Company = company;
+        this.company = company;
         this.priceImplicit = priceImplicit;
         this.priceExplicit = priceExplicit;
     }
@@ -72,11 +72,11 @@ public class Product {
     }
 
     public String getCompany() {
-        return Company;
+        return company;
     }
 
     public void setCompany(String company) {
-        Company = company;
+        this.company = company;
     }
 
     public double getPriceImplicit() {

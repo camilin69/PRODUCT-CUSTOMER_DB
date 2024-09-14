@@ -29,50 +29,45 @@
         <div class="container_search">
             <div class="mb-3">
                 <input type="search" class="form-control" id="search_input" placeholder="Buscar Producto...">
-                <button onclick="find()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
 
+        <div class="column">
+            <button>
+                <span>Filtro 1</span>
+            </button>
+            <button>
+                <span>Filtro 2</span>
+            </button>
+            <button>
+                <i style="color:white;" class="fa-solid fa-filter"></i>
+            </button>
+        </div>
+
         <div class="container_table">
-            <div class="table-header">
-                <div class="table-wrapper" style="max-height: 800px; overflow-y: auto;">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                        <tr>
-                            <th scope="col">ID Producto</th>
-                            <th scope="col">Nombre del Producto</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <!-- Filas de ejemplo -->
-                        <tr>
-                            <td>1</td>
-                            <td>Guacamole</td>
-                            <td>$5.99</td>
-                            <td>20</td>
-                            <td>
-                                <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Salsa</td>
-                            <td>$3.50</td>
-                            <td>10</td>
-                            <td>
-                                <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                            </td>
-                        </tr>
-                        <!-- Puedes agregar más filas aquí -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 200px;">nameDane</th>
+                        <th style="width: 200px;">barcode</th>
+                        <th style="width: 200px;">name</th>
+                        <th style="width: 200px;">brand</th>
+                        <th style="width: 200px;">company</th>
+                        <th style="width: 200px;">priceExplicit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aceite de girasol</td>
+                        <td>7701018007212</td>
+                        <td>CAJ.ACEITE GIRASOL PREMIER X500CC</td>
+                        <td>Centímetros cúbicos</td>
+                        <td>PREMIER</td>
+                        <td>ABASTECEMOS DE OCCIDENTE S.A.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
