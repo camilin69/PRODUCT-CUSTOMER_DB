@@ -33,4 +33,10 @@ public class ProductHandler {
         }
         return false;
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    
 }

@@ -6,7 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "servletProduct", value = "/servlet-product")
 public class ServletProduct extends HttpServlet {
@@ -22,12 +25,24 @@ public class ServletProduct extends HttpServlet {
         ph.addProduct("5","Aceite de girasol", "7701018007151", "CAJ.ACEITE GIRASOL PREMIER  X1000CC", "Centímetros cúbicos", "FINO", "ABASTECEMOS DE OCCIDENTE S.A.", "76520", "Palmira", 12019, 10168);
         ph.addProduct("6","Aceite de girasol", "7701018007212", "CAJ.ACEITE GIRASOL PREMIER X500CC", "Centímetros cúbicos", "PREMIER", "ABASTECEMOS DE OCCIDENTE S.A.", "76892", "Yumbo", 6391, 5798);
 
-
     }
+
     public void init() {
         setup();
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String getType = request.getParameter("getType");
+
+        response.setContentType("application/json");
+
+        Gson gson = new Gson();
+
+        try (PrintWriter out = response.getWriter()) {
+            
+            if(getType.equals("get_raw_product_list")){
+                out.print(gson.toJson(ph.getProducts()));
+            }
+        }
     }
 }
