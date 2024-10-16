@@ -1,4 +1,4 @@
-package co.edu.uptc.demo_1;
+package co.edu.uptc.demo_1.servlets;
 
 import java.io.*;
 

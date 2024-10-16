@@ -1,8 +1,10 @@
-package co.edu.uptc.demo_1;
+package co.edu.uptc.demo_1.Handler;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import co.edu.uptc.demo_1.Entities.Product;
 
 public class ProductHandler {
     private List<Product> products;

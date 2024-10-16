@@ -1,4 +1,4 @@
-package co.edu.uptc.demo_1;
+package co.edu.uptc.demo_1.Entities;
 
 public class Product {
     private String id_product;

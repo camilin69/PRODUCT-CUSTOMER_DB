@@ -1,7 +1,6 @@
-package co.edu.uptc.demo_1;
+package co.edu.uptc.demo_1.Entities;
 
 public class Consumer {
-    private String id_consumer;
     private int id;
     private String name;
     private int age;
@@ -10,22 +9,13 @@ public class Consumer {
     private String email;
 
 
-    public Consumer(String id_consumer, int id, String name, int age, String municipio, short status, String email) {
-        this.id_consumer = id_consumer;
+    public Consumer(int id, String name, int age, String municipio, short status, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.municipio = municipio;
         this.status = status;
         this.email = email;
-    }
-
-    public String getId_consumer() {
-        return id_consumer;
-    }
-
-    public void setId_consumer(String id_consumer) {
-        this.id_consumer = id_consumer;
     }
 
     public int getId() {

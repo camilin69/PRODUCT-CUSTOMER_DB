@@ -1,4 +1,4 @@
-package co.edu.uptc.demo_1;
+package co.edu.uptc.demo_1.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+
+import co.edu.uptc.demo_1.Handler.ProductHandler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
