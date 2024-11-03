@@ -9,7 +9,7 @@ function getProducts(){
     const xhr = new XMLHttpRequest();
     const params = new URLSearchParams({getType: "get_raw_product_list"});
 
-    xhr.open("GET", `/demo_1_war_exploded/servlet-product?${params.toString()}`, true);
+    xhr.open("GET", `demo_2/servlet-product?${params.toString()}`, true);
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
@@ -37,6 +37,20 @@ function getProducts(){
     xhr.send();
 }
 
+async function fetchProducts() {
+    try {
+        const response = await fetch('/demo_2/webapi/myresource/products?getType=get_raw_product_list');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const products = await response.json();
+        console.log(products); // Muestra los productos en la consola
+        showProducts(products); // Llama a tu función para mostrar los productos
+    } catch (error) {
+        console.error('Error fetching products:', error);
+    }
+}
+
 function showProducts(){
     const tbody = document.getElementById('products_table').querySelector('tbody');
 
@@ -53,6 +67,3 @@ function showProducts(){
         tbody.appendChild(row);
     });
 }
-
-
-getProducts();

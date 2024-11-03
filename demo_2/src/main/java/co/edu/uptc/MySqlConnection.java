@@ -25,21 +25,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 
 
 public class MySqlConnection {
 
     public static void main(String[] args) {
-        String DATABASE = "consultoriopc";
+        String DATABASE = "consultorio_productos";
         String url = "jdbc:mysql://localhost:3306/" + DATABASE;
-        String username = "camilinpinguin";
-        String password = "cami";
+        String username = "camilin";
+        String password = "imaccc";
 
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            int op = 5;
+            int op = new Scanner(System.in).nextInt();
+
             if(op == 1)
                 addProducts(connection);
             else if(op == 2)
@@ -64,8 +67,8 @@ public class MySqlConnection {
             Sheet sheet = workbook.getSheetAt(0);
 
             Iterator<Row> rowIterator = sheet.iterator();
-            int c = 143;
-            while (rowIterator.hasNext() && c <= 1000) {
+            int c = 1;
+            while (rowIterator.hasNext() && c <= 0) {
                 List<String> data = new ArrayList<>();
                 data.add(String.valueOf(c));
                 Row row = rowIterator.next();
@@ -126,8 +129,36 @@ public class MySqlConnection {
         });
     }
 
-    private static void addHistoricProducts(Connection connection){
+    private static void addHistoricProducts(Connection connection) throws FileNotFoundException, IOException, SQLException{
+        String fecha = "'2024-10-1'";
+        try (FileInputStream file = new FileInputStream("src/main/resources/data.xlsx")) {
+            XSSFWorkbook workbook = new XSSFWorkbook(file);
+            Sheet sheet = workbook.getSheetAt(0);
 
+            Iterator<Row> rowIterator = sheet.iterator();
+            int c = 1;
+            while (rowIterator.hasNext() && c <= 1000) {
+                List<String> data = new ArrayList<>();
+                data.add(String.valueOf(c));
+                data.add(fecha);
+                Row row = rowIterator.next();
+                
+                data.add(String.valueOf(row.getCell(8).getNumericCellValue() + new Random().nextInt(10000)));
+                data.add(String.valueOf(row.getCell(9).getNumericCellValue() + new Random().nextInt(10000)));
+
+                String query = String.format(
+                        "INSERT INTO precios_historicos (idProducto, fecha, precioImplicito, precioExplicito) " +
+                                "VALUES (%s, %s, %s, %s)",
+                        data.toArray());
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(query);
+                statement.close();
+                
+                c++;
+
+            }
+            workbook.close();
+        }
     }
 
     private static void addCategories(Connection connection) throws IOException{

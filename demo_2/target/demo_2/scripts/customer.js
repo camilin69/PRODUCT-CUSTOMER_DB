@@ -9,7 +9,7 @@ function getProducts(){
     const xhr = new XMLHttpRequest();
     const params = new URLSearchParams({getType: "get_raw_product_list"});
 
-    xhr.open("GET", `/demo_1_war_exploded/servlet-product?${params.toString()}`, true);
+    xhr.open("GET", `/servlet-product?${params.toString()}`, true);
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
