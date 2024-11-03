@@ -1,0 +1,6 @@
+.container, h1{
+    padding-top: 3%;
+    padding-left: 30%;
+    width: 60%;
+    display: inline-block;
+}
