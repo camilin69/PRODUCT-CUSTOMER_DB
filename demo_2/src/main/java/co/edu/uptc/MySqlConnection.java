@@ -32,32 +32,38 @@ import java.util.Scanner;
 
 public class MySqlConnection {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException, SQLException {
+        
+        ops(getConnection());
+        
+    }
+
+    public static Connection getConnection() throws SQLException{
         String DATABASE = "consultorio_productos";
         String url = "jdbc:mysql://localhost:3306/" + DATABASE;
         String username = "camilin";
         String password = "imaccc";
+        Connection connection = DriverManager.getConnection(url, username, password);
+        return connection;
+    }
 
-        try {
-            Connection connection = DriverManager.getConnection(url, username, password);
-
-            int op = new Scanner(System.in).nextInt();
-
-            if(op == 1)
-                addProducts(connection);
-            else if(op == 2)
-                addConsumers(connection);
-            else if(op == 3)
-                addHistoricProducts(connection);
-            else if(op == 4)
-                addCategories(connection);
-            else if(op == 5){
-                addProviders(connection);
-            }
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+    private static void ops(Connection connection) throws FileNotFoundException, IOException, SQLException{
+        System.out.println("SELECT AN OPTION: ");
+        int op = new Scanner(System.in).nextInt();
+        
+        if(op == 1)
+            addProducts(connection);
+        else if(op == 2)
+            addConsumers(connection);
+        else if(op == 3)
+            addHistoricProducts(connection);
+        else if(op == 4)
+            addCategories(connection);
+        else if(op == 5){
+            addProviders(connection);
         }
+
+        connection.close();
     }
 
 

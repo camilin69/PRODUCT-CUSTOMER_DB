@@ -34,6 +34,7 @@ public class ServletProduct extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String getType = request.getParameter("getType");
 
         response.setContentType("application/json");

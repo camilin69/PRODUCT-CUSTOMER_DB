@@ -10,10 +10,13 @@ public class Product {
     private String company;
     private String divipola;
     private String municipio;
-    private double priceImplicit;
-    private double priceExplicit;
+    private int priceImplicit;
+    private int priceExplicit;
 
-    public Product(String id_product, String nameDane, String barcode, String name, String unity, String brand, String company, String divipola, String municipio, double priceImplicit, double priceExplicit) {
+    
+
+    public Product(String id_product, String nameDane, String barcode, String name, String unity, String brand,
+            String company, String divipola, String municipio, int priceImplicit, int priceExplicit) {
         this.id_product = id_product;
         this.nameDane = nameDane;
         this.barcode = barcode;
@@ -99,19 +102,21 @@ public class Product {
         this.municipio = municipio;
     }
 
-    public double getPriceImplicit() {
+    public int getPriceImplicit() {
         return priceImplicit;
     }
 
-    public void setPriceImplicit(double priceImplicit) {
+    public void setPriceImplicit(int priceImplicit) {
         this.priceImplicit = priceImplicit;
     }
 
-    public double getPriceExplicit() {
+    public int getPriceExplicit() {
         return priceExplicit;
     }
 
-    public void setPriceExplicit(double priceExplicit) {
+    public void setPriceExplicit(int priceExplicit) {
         this.priceExplicit = priceExplicit;
     }
+
+    
 }

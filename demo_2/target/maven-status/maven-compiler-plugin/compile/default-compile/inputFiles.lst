@@ -3,10 +3,10 @@
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/servlets/ServletProduct.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/ExcelManager.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/Product.java
-/home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/MyResource.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/MySqlConnection.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/handler/ConsumerHandler.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/handler/ProductHandler.java
+/home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/Products.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/servlets/ServletConsumer.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/Category.java
 /home/camilo/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/Consumer.java

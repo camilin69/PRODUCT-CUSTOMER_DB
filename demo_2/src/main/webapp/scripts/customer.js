@@ -9,7 +9,7 @@ function getProducts(){
     const xhr = new XMLHttpRequest();
     const params = new URLSearchParams({getType: "get_raw_product_list"});
 
-    xhr.open("GET", `demo_2/servlet-product?${params.toString()}`, true);
+    xhr.open("GET", `/demo_2_war_exploded/servlet-product?${params.toString()}`, true);
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
@@ -17,7 +17,7 @@ function getProducts(){
                 try {
                     if (xhr.responseText) {
                         products = JSON.parse(xhr.responseText);
-                        showProducts();
+                        showProducts(products);
                     } else {
                         console.error('Empty response received.');
                     }
@@ -37,21 +37,23 @@ function getProducts(){
     xhr.send();
 }
 
-async function fetchProducts() {
+async function fetch_ten_products() {
     try {
-        const response = await fetch('/demo_2/webapi/myresource/products?getType=get_raw_product_list');
+        const response = await fetch('../webapi/products/get_ten_first');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const products = await response.json();
-        console.log(products); // Muestra los productos en la consola
-        showProducts(products); // Llama a tu función para mostrar los productos
+        products = await response.json();
+        console.log(products); 
+        showProducts(products); 
     } catch (error) {
         console.error('Error fetching products:', error);
     }
 }
 
-function showProducts(){
+
+
+function showProducts(products){
     const tbody = document.getElementById('products_table').querySelector('tbody');
 
     products.forEach(p => {
@@ -67,3 +69,7 @@ function showProducts(){
         tbody.appendChild(row);
     });
 }
+
+
+fetch_ten_products()
+//getProducts()

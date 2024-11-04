@@ -27,21 +27,13 @@
         <div class="container_search">
             <div class="mb-3">
                 <input type="search" class="form-control" id="search_input" placeholder="Buscar Producto...">
-                <button onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
+                <button id="search_button" onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
+                <button id="filter_button"><i style="color:white;" class="fa-solid fa-filter"></i></button>
             </div>
+            
         </div>
 
-        <div class="column">
-            <button>
-                <span>Filtro 1</span>
-            </button>
-            <button>
-                <span>Filtro 2</span>
-            </button>
-            <button>
-                <i style="color:white;" class="fa-solid fa-filter"></i>
-            </button>
-        </div>
+        
 
         <div class="container_table">
             <table class="table" id="products_table">
@@ -55,10 +47,17 @@
                         <th style="width: 100px;">priceExplicit</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table_body">
+                    
                 </tbody>
             </table>
+            <div id="pagination">
+                <button id="prev">Anterior</button>
+                <span id="page_info"></span>
+                <button id="next">Siguiente</button>
+            </div>
         </div>
+        
     </div>
 
     <script src="../scripts/customer.js"></script>

@@ -18,7 +18,7 @@ public class ProductHandler {
         return product.orElse(null);
     }
 
-    public boolean addProduct(String id_product, String nameDane, String barcode, String name, String unity, String brand, String company, String divipola, String municipio, double priceImplicit, double priceExplicit){
+    public boolean addProduct(String id_product, String nameDane, String barcode, String name, String unity, String brand, String company, String divipola, String municipio, int priceImplicit, int priceExplicit){
         if(findProduct(id_product) == null){
             Product product = new Product(id_product, nameDane, barcode, name, unity, brand, company, divipola, municipio, priceImplicit, priceExplicit);
             products.add(product);
