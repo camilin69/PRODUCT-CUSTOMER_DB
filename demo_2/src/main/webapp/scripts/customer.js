@@ -1,45 +1,23 @@
 var products = [];
+var pagination_offset = 0;
+var number_page = document.getElementById("number_page")
 
 window.addEventListener("scroll", function(){
     var header = document.querySelector("header");
     header.classList.toggle("down", window.scrollY > 0);
 })
 
-function getProducts(){
-    const xhr = new XMLHttpRequest();
-    const params = new URLSearchParams({getType: "get_raw_product_list"});
 
-    xhr.open("GET", `/demo_2_war_exploded/servlet-product?${params.toString()}`, true);
 
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                try {
-                    if (xhr.responseText) {
-                        products = JSON.parse(xhr.responseText);
-                        showProducts(products);
-                    } else {
-                        console.error('Empty response received.');
-                    }
-                } catch (e) {
-                    console.error('Error parsing JSON:', e);
-                    console.error('Response:', xhr.responseText);
-                }
-            } else {
-                console.error('Error fetching:', xhr.status, xhr.statusText);
-            }
-        }
-    };
-
-    xhr.onerror = () => {
-        console.error('Request failed');
-    };
-    xhr.send();
-}
-
-async function fetch_ten_products() {
+async function getProducts() {
     try {
-        const response = await fetch('../webapi/products/get_ten_first');
+        const url = `../webapi/products/get_ten_first?offset=${pagination_offset}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -55,7 +33,7 @@ async function fetch_ten_products() {
 
 function showProducts(products){
     const tbody = document.getElementById('products_table').querySelector('tbody');
-
+    tbody.innerHTML = ''
     products.forEach(p => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -68,8 +46,21 @@ function showProducts(products){
         `;
         tbody.appendChild(row);
     });
+    number_page.innerHTML = 'Página ' + ((pagination_offset / 10) + 1)
+}
+
+function pagination_go_backward(){
+    if(pagination_offset != 1){
+        pagination_offset -= 10
+        getProducts()
+    }
+    
+}
+
+function pagination_go_forward(){
+    pagination_offset += 10;
+    getProducts()
 }
 
 
-fetch_ten_products()
-//getProducts()
+getProducts()

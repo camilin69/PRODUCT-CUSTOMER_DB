@@ -154,6 +154,16 @@ header ul li a{
 
  .container_table{
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+ }
+
+ #pagination{
+    display: flex;
+    gap:50px;
  }
 
 

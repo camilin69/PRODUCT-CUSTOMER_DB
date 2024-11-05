@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-
+import jakarta.ws.rs.QueryParam;
 import co.edu.uptc.entities.Product;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -22,20 +22,20 @@ public class Products {
     @GET
     @Path("get_ten_first")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Product> getProducts(){
+    public List<Product> getProducts(@QueryParam("offset") int offset){
         ProductHandler ph = new ProductHandler();
-        
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("MySQL Driver not found", e);
         }
-        
-        
+
         try {
             Connection c = MySqlConnection.getConnection();
             Statement statement = c.createStatement();
-            String sql = "SELECT * FROM productos LIMIT 10";
+            
+            String sql = "SELECT * FROM productos LIMIT 10 OFFSET " + offset;
 
             ResultSet rs = statement.executeQuery(sql);
 
