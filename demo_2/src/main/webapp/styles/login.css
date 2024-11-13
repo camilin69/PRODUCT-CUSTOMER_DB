@@ -1,6 +1,21 @@
-.container, h1{
-    padding-top: 3%;
-    padding-left: 30%;
-    width: 60%;
-    display: inline-block;
+.container_login{
+    padding: 50px 500px;
+}
+
+.container_register{
+    display: none;
+    padding: 100px 500px;
+    
+}
+
+.card-footer button{
+    border-color: transparent;
+    background-color: transparent;
+    color: blue;
+    text-decoration: underline;
+}
+
+#regConsumer, #regProvider{
+    display: flex;
+    flex-direction: column;
 }

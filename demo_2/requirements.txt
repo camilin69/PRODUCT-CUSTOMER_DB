@@ -1,0 +1,7 @@
+1. Login, register (All users = consumers, providers)
+2. All users are allowed to see all the attributes of a product
+3. All users can search products 
+4. consumers can store and remove products they are | arent interested in (wishlist).
+5. providers can store and remove products they are | arent distributing (inventary)
+6. consumers can search providers
+(7.consumers can talk with providers)
