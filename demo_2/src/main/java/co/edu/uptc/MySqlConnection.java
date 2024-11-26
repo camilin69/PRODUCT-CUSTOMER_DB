@@ -67,18 +67,25 @@ public class MySqlConnection {
     }
 
 
-    private static void addProducts(Connection connection) throws FileNotFoundException, IOException, SQLException{
+    private static void addProducts(Connection connection, int startingRow) throws FileNotFoundException, IOException, SQLException{
         try (FileInputStream file = new FileInputStream("src/main/resources/data.xlsx")) {
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             Sheet sheet = workbook.getSheetAt(0);
 
             Iterator<Row> rowIterator = sheet.iterator();
             int c = 1;
-            while (rowIterator.hasNext() && c <= 0) {
+            while (rowIterator.hasNext() && c < startingRow) {
+                rowIterator.next(); 
+                c++;
+            }
+
+            while (rowIterator.hasNext() && c <= 100) {
                 List<String> data = new ArrayList<>();
                 data.add(String.valueOf(c));
                 Row row = rowIterator.next();
                 Iterator<Cell> cellIterator = row.cellIterator();
+
+                
 
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();

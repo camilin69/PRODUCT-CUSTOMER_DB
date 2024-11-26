@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 body{
     width: 100%;
     background-color: #3c7d97;
@@ -175,11 +176,78 @@ header ul li button{
     align-items: center;
 
  }
-
- #pagination{
+.pagination button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.pagination {
     display: flex;
-    gap:50px;
- }
+    flex-direction: row;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px 0px rgba(31, 41, 55, 0.14);
+    background-color: rgba(0, 119, 255, 0.24);
+    position: relative;
+}
+.pagination__number-indicator {
+
+    position: absolute;
+    height: 2px;
+    background-color: #78aaff;
+    opacity: 0;
+    bottom: 10px;
+    transition: all 0.2s ease;
+}
+.pagination__number {
+    font-weight: 1000;
+    font-size: 16px;
+    color: #78aaff;
+}
+.pagination__number--active {
+    color: #000000;
+    position: relative;
+}
+.pagination__number, .pagination__arrow {
+    padding: 16px;
+}
+.pagination__arrow--right {
+    transform: scaleX(-1);
+}
+.pagination__arrow:hover .pagination__arrow-half:first-child {
+    transform: translateY(0.5px) rotate(-30deg);
+}
+.pagination__arrow:hover .pagination__arrow-half:last-child {
+    transform: translateY(-0.5px) rotate(30deg);
+}
+.pagination__arrow:active .pagination__arrow-half:first-child, .pagination__arrow--disabled .pagination__arrow-half:first-child {
+    transform: translateY(0) rotate(0);
+}
+.pagination__arrow:active .pagination__arrow-half:last-child, .pagination__arrow--disabled .pagination__arrow-half:last-child {
+    transform: translateY(0) rotate(0);
+}
+.pagination__arrow--disabled .pagination__arrow-half:last-child, .pagination__arrow--disabled .pagination__arrow-half:first-child {
+    opacity: 0.2;
+}
+.pagination__arrow--disabled {
+    pointer-events: none;
+}
+.pagination__arrow-half {
+    width: 9px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #4338ca;
+    display: inline-block;
+    position: absolute;
+    transform-origin: 0px;
+    opacity: 1;
+    transition: transform 0.1s ease-in-out, opacity 0.2s ease-in-out;
+}
+.pagination__arrow-half:first-child {
+    transform: translateY(0.5px) rotate(-45deg);
+}
+.pagination__arrow-half:last-child {
+    transform: translateY(-0.5px) rotate(45deg);
+}
 
  table#products_table tbody tr:hover {
     background-color: #575757;

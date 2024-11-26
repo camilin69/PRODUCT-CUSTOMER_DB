@@ -20,9 +20,9 @@ import co.edu.uptc.handler.ProductHandler;
 public class Products {
     
     @GET
-    @Path("get_ten_first")
+    @Path("get_ten")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Product> getProducts(@QueryParam("offset") int offset){
+    public List<Product> get_ten(@QueryParam("offset") int offset){
         ProductHandler ph = new ProductHandler();
 
         try {
