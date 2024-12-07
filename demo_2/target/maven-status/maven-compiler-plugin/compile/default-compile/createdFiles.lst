@@ -1,0 +1,9 @@
+co/edu/uptc/entities/Product_Historic.class
+co/edu/uptc/handler/ConsumerHandler.class
+co/edu/uptc/MySqlConnection.class
+co/edu/uptc/Products.class
+co/edu/uptc/entities/Product.class
+co/edu/uptc/entities/Category.class
+co/edu/uptc/entities/Consumer.class
+co/edu/uptc/handler/ProductHandler.class
+co/edu/uptc/entities/Provider.class
