@@ -1,13 +1,12 @@
 package co.edu.uptc;
 
+/*
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,16 +25,12 @@ import com.google.gson.reflect.TypeToken;
 import co.edu.uptc.entities.Category;
 import co.edu.uptc.entities.Consumer;
 import co.edu.uptc.entities.Provider;
-
-
+*/
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class MySqlConnection {
-
-    public static void main(String[] args) throws FileNotFoundException, IOException, SQLException {
-        
-        ops(getConnection());
-        
-    }
 
     public static Connection getConnection() throws SQLException{
         String DATABASE = "consultorio_productos";
@@ -45,25 +40,8 @@ public class MySqlConnection {
         Connection connection = DriverManager.getConnection(url, username, password);
         return connection;
     }
-
-    private static void ops(Connection connection) throws FileNotFoundException, IOException, SQLException{
-        System.out.println("SELECT AN OPTION: ");
-        int op = new Scanner(System.in).nextInt();
-        
-        if(op == 1)
-            addProducts(connection);
-        else if(op == 2)
-            addConsumers(connection);
-        else if(op == 4)
-            addCategories(connection);
-        else if(op == 5){
-            addProviders(connection);
-        }
-
-        connection.close();
-    }
-
-
+}
+    /* 
     private static void addProducts(Connection connection) throws FileNotFoundException, IOException, SQLException{
         try (FileInputStream file = new FileInputStream("src/main/resources/data.xlsx")) {
             XSSFWorkbook workbook = new XSSFWorkbook(file);
@@ -190,5 +168,5 @@ public class MySqlConnection {
         });
     }
 
-}
 
+*/

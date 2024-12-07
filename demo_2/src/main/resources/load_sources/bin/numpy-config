@@ -1,8 +1,0 @@
-#!/home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/resources/load_sources/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from numpy._configtool import main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
