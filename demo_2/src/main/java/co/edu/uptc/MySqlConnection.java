@@ -1,18 +1,5 @@
 package co.edu.uptc;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import co.edu.uptc.entities.Consumer;
-import co.edu.uptc.entities.Provider;
-import co.edu.uptc.entities.Category;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -25,8 +12,20 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import co.edu.uptc.entities.Category;
+import co.edu.uptc.entities.Consumer;
+import co.edu.uptc.entities.Provider;
 
 
 
@@ -55,8 +54,6 @@ public class MySqlConnection {
             addProducts(connection);
         else if(op == 2)
             addConsumers(connection);
-        else if(op == 3)
-            addHistoricProducts(connection);
         else if(op == 4)
             addCategories(connection);
         else if(op == 5){
@@ -67,14 +64,14 @@ public class MySqlConnection {
     }
 
 
-    private static void addProducts(Connection connection, int startingRow) throws FileNotFoundException, IOException, SQLException{
+    private static void addProducts(Connection connection) throws FileNotFoundException, IOException, SQLException{
         try (FileInputStream file = new FileInputStream("src/main/resources/data.xlsx")) {
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             Sheet sheet = workbook.getSheetAt(0);
 
             Iterator<Row> rowIterator = sheet.iterator();
             int c = 1;
-            while (rowIterator.hasNext() && c < startingRow) {
+            while (rowIterator.hasNext()) {
                 rowIterator.next(); 
                 c++;
             }
@@ -142,37 +139,6 @@ public class MySqlConnection {
         });
     }
 
-    private static void addHistoricProducts(Connection connection) throws FileNotFoundException, IOException, SQLException{
-        String fecha = "'2024-10-1'";
-        try (FileInputStream file = new FileInputStream("src/main/resources/data.xlsx")) {
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
-            Sheet sheet = workbook.getSheetAt(0);
-
-            Iterator<Row> rowIterator = sheet.iterator();
-            int c = 1;
-            while (rowIterator.hasNext() && c <= 1000) {
-                List<String> data = new ArrayList<>();
-                data.add(String.valueOf(c));
-                data.add(fecha);
-                Row row = rowIterator.next();
-                
-                data.add(String.valueOf(row.getCell(8).getNumericCellValue() + new Random().nextInt(10000)));
-                data.add(String.valueOf(row.getCell(9).getNumericCellValue() + new Random().nextInt(10000)));
-
-                String query = String.format(
-                        "INSERT INTO precios_historicos (idProducto, fecha, precioImplicito, precioExplicito) " +
-                                "VALUES (%s, %s, %s, %s)",
-                        data.toArray());
-                Statement statement = connection.createStatement();
-                statement.executeUpdate(query);
-                statement.close();
-                
-                c++;
-
-            }
-            workbook.close();
-        }
-    }
 
     private static void addCategories(Connection connection) throws IOException{
         Gson gson = new Gson();
