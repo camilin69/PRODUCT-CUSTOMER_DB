@@ -19,3 +19,33 @@
     display: flex;
     flex-direction: column;
 }
+
+.alert-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8d7da; 
+    color: #721c24;
+    border: 1px solid #f5c6cb; 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    display: none; 
+    max-width: 400px; 
+    width: 100%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    z-index: 9999; 
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /
+}
+
+.alert-box.show {
+    opacity: 1;
+    display: block;
+}
+
+
+.alert-box.hide {
+    opacity: 0;
+    visibility: hidden;
+}
