@@ -6,13 +6,20 @@ public class Provider {
     private String phone;
     private String email;
     private String password;
-    public Provider(int id, String name, String phone, String email, String password) {
+    private String address;
+
+    public Provider() {}
+
+    public Provider(int id, String name, String phone, String email, String password, String address) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.password = password;
+        this.address = address;
     }
+    
+    // Getters y Setters
     public int getId() {
         return id;
     }
@@ -43,8 +50,10 @@ public class Provider {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
-
-    
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

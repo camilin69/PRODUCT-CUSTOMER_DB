@@ -4,19 +4,24 @@ public class Consumer {
     private int id;
     private String name;
     private int age;
-    private short status;
+    private String municipio;
+    private int estrato;
     private String email;
     private String password;
-    private int id_municipio;
-    public Consumer(int id, String name, int age, short status, String email, String password, int id_municipio) {
+
+    public Consumer() {}
+
+    public Consumer(int id, String name, int age, String municipio, int estrato, String email, String password) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.status = status;
+        this.municipio = municipio;
+        this.estrato = estrato;
         this.email = email;
         this.password = password;
-        this.id_municipio = id_municipio;
     }
+    
+    // Getters y Setters
     public int getId() {
         return id;
     }
@@ -35,11 +40,17 @@ public class Consumer {
     public void setAge(int age) {
         this.age = age;
     }
-    public short getStatus() {
-        return status;
+    public String getMunicipio() {
+        return municipio;
     }
-    public void setStatus(short status) {
-        this.status = status;
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+    public int getEstrato() {
+        return estrato;
+    }
+    public void setEstrato(int estrato) {
+        this.estrato = estrato;
     }
     public String getEmail() {
         return email;
@@ -53,14 +64,4 @@ public class Consumer {
     public void setPassword(String password) {
         this.password = password;
     }
-    public int getId_municipio() {
-        return id_municipio;
-    }
-    public void setId_municipio(int id_municipio) {
-        this.id_municipio = id_municipio;
-    }
-
-    
-
-
 }
