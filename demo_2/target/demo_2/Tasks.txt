@@ -1,0 +1,13 @@
+1. Login
+    * Validations -Backend          -----1
+    * Forgot Password?              -----5
+2. Register
+    * Validations - Backend         -----2
+3. Consumers
+    * Backend(Queries, Validations) -----3
+    * Frontend (Fonts, Colors)      -----4
+4. Providers
+    *Backend (Queries, Queries, and more Queries)
+
+
+ALL: VENTANAS DE ALERTA (PREGUNTAR SI QUIERE REALIZAR LA ACCIÓN) 

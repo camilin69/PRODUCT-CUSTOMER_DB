@@ -4,18 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import co.edu.uptc.entities.Consumer;
-import co.edu.uptc.entities.Provider;
+import co.edu.uptc.entities.Municipio;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.mindrot.jbcrypt.BCrypt;
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
 
 @Path("login")
 public class Login {
@@ -24,49 +22,75 @@ public class Login {
 
     @GET
     @Path("find_user")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response find_user(@QueryParam("email") String email,
-                              @QueryParam("password") String password,
-                              @QueryParam("role") String role) {
+    @Produces(MediaType.TEXT_PLAIN)
+    public boolean find_user(@QueryParam("email") String email, 
+                            @QueryParam("password") String password, 
+                            @QueryParam("role") String role) {
 
         // Verificar que los parámetros no sean nulos o vacíos
         if (email == null || email.isEmpty() || password == null || password.isEmpty() || role == null || role.isEmpty()) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("{\"message\":\"Email, Password or Role Missing\"}")
-                    .build();
+            throw new RuntimeException("Email, Password or Role Missed");
         }
 
-        String table = role.equals("consumer") ? "consumidores" : "proveedores";
-        String sql = "SELECT id, password FROM " + table + " WHERE email = ?";
+        boolean userFound = false;
 
-        try (Connection c = MySqlConnection.getConnection();
-             PreparedStatement stmt = c.prepareStatement(sql)) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
 
-            stmt.setString(1, email);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    String storedHashedPassword = rs.getString("password");
-                    if (BCrypt.checkpw(password, storedHashedPassword)) {
-                        // Generar Token JWT
-                        String token = JWT.create()
-                                .withIssuer("consultorio")
-                                .withSubject(String.valueOf(rs.getInt("id")))
-                                .withClaim("role", role)
-                                .sign(Algorithm.HMAC256(SECRET));
+        try (Connection c = MySqlConnection.getConnection()) {
 
-                        return Response.ok("{\"message\":\"User Found\", \"token\":\"" + token + "\", \"role\":\"" + role + "\"}").build();
+            String table = role.equals("consumer")?"consumidores":"proveedores";
+            
+            String sql = "SELECT COUNT(*) FROM " + table + " WHERE email = ? AND contra = ?";
+            
+            try (PreparedStatement statement = c.prepareStatement(sql)) {
+
+                statement.setString(1, email);
+                statement.setString(2, password);
+
+                try (ResultSet rs = statement.executeQuery()) {
+                    if (rs.next() && rs.getInt(1) > 0) {
+                        userFound = true;  
                     }
                 }
             }
-
         } catch (SQLException e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("{\"message\":\"Error en la consulta SQL: " + e.getMessage() + "\"}")
-                    .build();
+            throw new RuntimeException("Error en la consulta SQL: " + e.getMessage(), e);
         }
 
-        return Response.status(Response.Status.UNAUTHORIZED)
-                .entity("{\"message\":\"Credenciales incorrectas o usuario no encontrado\"}")
-                .build();
+        return userFound;
+    }
+
+    @GET
+    @Path("get_municipios")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get_municipios() {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
+
+        List<Municipio> municipios = new ArrayList<>();
+        try (Connection c = MySqlConnection.getConnection()) {
+            
+            String sql = "SELECT * FROM municipios;";
+            
+            try (PreparedStatement statement = c.prepareStatement(sql)) {
+                try (ResultSet rs = statement.executeQuery()) {
+                    while (rs.next()) {
+                        municipios.add(new Municipio(rs.getInt("id"), rs.getString("nombre")));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error on query SQL: " + e.getMessage(), e);
+        }
+
+        return Response.ok(municipios).build();
     }
 }

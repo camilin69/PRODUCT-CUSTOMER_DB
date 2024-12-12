@@ -94,15 +94,5 @@ public class Register {
         }
     }
 
-    @POST
-    @Path("find_user")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response find_user_reg(String id, String role) {
-        // Este método ya no es necesario si manejas la validación directamente en el frontend
-        // Sin embargo, si aún lo necesitas, implementa una lógica similar a la de Login.java
-        return Response.status(Response.Status.NOT_IMPLEMENTED)
-                .entity("{\"message\":\"Método no implementado\"}")
-                .build();
-    }
+    
 }
