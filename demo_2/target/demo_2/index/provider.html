@@ -103,49 +103,33 @@
                     <h4 class="modal-title" id="filterModalLabel">Filtros</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="row mb-2">
-
-                        <div class="col-md-6 mb-2">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" id="filter_by_attribute" aria-label="Floating label select example">
-                                    <option selected>nombre</option>
-                                    <option value="namedane">nombre DANE</option>
-                                    <option value="brand">marca</option>
-                                    <option value="company">empresa</option>
-                                    <option value="barcode">codigo Barras</option>
-                                </select>
-                                <label for="filter_by_attribute">Buscar Por Atributo</label>
-                            </div>
-
-                            <div class="form-floating mb-2">
-                                <select class="form-select" id="filter_by_category" aria-label="Floating label select example">
-                                    <option selected>ninguna</option>
-                                    <option value="consume">Alimentos y Bebidas</option>
-                                    <option value="food">Medicamentos</option>
-                                    <option value="drink">Artículos de Higiene y Cuidado Personal</option>
-                                    <option value="medication">Equipos y Materiales Médicos</option>
-                                </select>
-                                <label for="filter_by_category">Buscar Por Categoria</label>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <form class="form-floating mb-2">
-                                <input type="number" class="form-control" id="filter_price_min">
-                                <label for="filter_price_min">Precio mínimo</label>
-                            </form>
-
-                            <form class="form-floating">
-                                <input type="number" class="form-control" id="filter_price_max">
-                                <label for="filter_price_max">Precio máximo</label>
-                            </form>
-                        </div>
                     
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="filter_by_attribute" aria-label="Floating label select example">
+                            <option value="nombre" selected>Nombre</option>
+                            <option value="nombreDANE">Nombre DANE</option>
+                            <option value="marca">Marca</option>
+                            <option value="empresa">Empresa</option>
+                            <option value="codigoBarras">Código de Barras</option>
+                        </select>
+                        <label for="filter_by_attribute">Buscar Por Atributo</label>
                     </div>
+
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="filter_by_category" aria-label="Floating label select example">
+                            <option value="0" selected>ninguna</option>
+                            <option value="1">Alimentos y Bebidas</option>
+                            <option value="2">Medicamentos</option>
+                            <option value="3">Artículos de Higiene y Cuidado Personal</option>
+                            <option value="4">Equipos y Materiales Médicos</option>
+                        </select>
+                        <label for="filter_by_category">Buscar Por Categoria</label>
+                    </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" onclick="apply_filters()">Aplicar</button>
+                    <button type="button" class="btn btn-primary" id="applyFilters" onclick="apply_filters()">Aplicar</button>
                 </div>
             </div>
         </div>

@@ -1,11 +1,12 @@
+co/edu/uptc/Products.class
+co/edu/uptc/entities/Category.class
+co/edu/uptc/entities/ProductMunicipio.class
+co/edu/uptc/entities/Consumer.class
+co/edu/uptc/entities/Municipio.class
+co/edu/uptc/entities/Provider.class
 co/edu/uptc/entities/SellPoint.class
 co/edu/uptc/Register.class
 co/edu/uptc/MySqlConnection.class
-co/edu/uptc/Products.class
 co/edu/uptc/entities/Product.class
-co/edu/uptc/entities/Category.class
-co/edu/uptc/entities/Consumer.class
 co/edu/uptc/Login.class
 co/edu/uptc/Favorites.class
-co/edu/uptc/entities/Municipio.class
-co/edu/uptc/entities/Provider.class

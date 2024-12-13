@@ -26,7 +26,7 @@
         <h2 style="color:#003985">Buscar Productos:</h2>
         <div class="container_search mt-5">
             <input type="search" class="form-control" id="search_input" placeholder="Buscar Producto...">
-            <button id="search_button" onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="search_button" onclick="find_products()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
             <button id="filter_button" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
         </div>
 
@@ -45,6 +45,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <th>namedane1</th>
+                        <th>barcode1</th>
+                        <th>name1</th>
+                        <th>name1</th>
+                        <th>Hola</th>
+                        <th>321321</th>
+                    </tr>
                 </tbody>
             </table>
             <div id="pagination" class="mt-5">
@@ -117,50 +125,33 @@
                     <h4 class="modal-title" id="filterModalLabel">Filtros</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="row mb-2">
-
-                        <div class="col-md-6 mb-2">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" id="filter_by_attribute" aria-label="Floating label select example">
-                                    <option selected>Nombre</option>
-                                    <option value="namedane">Nombre DANE</option>
-                                    <option value="brand">Marca</option>
-                                    <option value="company">Empresa</option>
-                                    <option value="barcode">Código de Barras</option>
-                                    <option value="divipola">Divipola</option>
-                                    <option value="mnicipio">Municipio</option>
-                                </select>
-                                <label for="filter_by_attribute">Buscar Por Atributo</label>
-                            </div>
-
-                            <div class="form-floating mb-2">
-                                <select class="form-select" id="filter_by_category" aria-label="Floating label select example">
-                                    <option selected>Consumo</option>
-                                    <option value="food">Comida</option>
-                                    <option value="drink">Bebidas</option>
-                                    <option value="medication">Medicacion</option>
-                                </select>
-                                <label for="filter_by_category">Buscar Por Categoria</label>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <form class="form-floating mb-2">
-                                <input type="number" class="form-control" id="filter_price_min">
-                                <label for="filter_price_min">Precio mínimo</label>
-                            </form>
-
-                            <form class="form-floating">
-                                <input type="number" class="form-control" id="filter_price_max">
-                                <label for="filter_price_max">Precio máximo</label>
-                            </form>
-                        </div>
                     
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="filter_by_attribute" aria-label="Floating label select example">
+                            <option value="nombre" selected>Nombre</option>
+                            <option value="nombreDANE">Nombre DANE</option>
+                            <option value="marca">Marca</option>
+                            <option value="empresa">Empresa</option>
+                            <option value="codigoBarras">Código de Barras</option>
+                        </select>
+                        <label for="filter_by_attribute">Buscar Por Atributo</label>
                     </div>
+
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="filter_by_category" aria-label="Floating label select example">
+                            <option value="0" selected>ninguna</option>
+                            <option value="1">Alimentos y Bebidas</option>
+                            <option value="2">Medicamentos</option>
+                            <option value="3">Artículos de Higiene y Cuidado Personal</option>
+                            <option value="4">Equipos y Materiales Médicos</option>
+                        </select>
+                        <label for="filter_by_category">Buscar Por Categoria</label>
+                    </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="applyFilters">Aplicar</button>
+                    <button type="button" class="btn btn-primary" id="applyFilters" onclick="apply_filters()" data-bs-dismiss="modal">Aplicar</button>
                 </div>
             </div>
         </div>

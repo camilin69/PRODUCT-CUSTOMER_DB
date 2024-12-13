@@ -7,9 +7,9 @@ const modalFooter = document.querySelector('#infoModal .modal-dialog .modal-cont
 
 
 
-async function get_sell_point(id_municipio, id_producto) {
+async function get_sell_point(id_municipio, id_product) {
     try {
-        const url = `../webapi/products/get_sell_point_consumer?id_municipio=${id_municipio}&id_producto=${id_producto}`;
+        const url = `../webapi/products/get_sell_point_consumer?id_municipio=${id_municipio}&id_producto=${id_product}`;
 
         const options = {
             method: 'GET',
@@ -38,11 +38,6 @@ function update_sell_point_select(sellPoints) {
         option.textContent = `${sellPoint.name} - ${sellPoint.address}`;
         selectSellPoint.appendChild(option);
 
-        selectSellPoint.addEventListener('change', function() {
-            document.getElementById('modal-product-implicit').innerText = 'Precio Implícito: ' + sellPoint.priceImplicit;
-            document.getElementById('modal-product-explicit').innerText = 'Precio Explícito: ' + sellPoint.priceExplicit;
-            document.getElementById('modal-product-divipola').innerText = 'Divipola: ' + sellPoint.divipola;
-        })
     });
     
 }

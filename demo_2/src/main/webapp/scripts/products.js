@@ -2,11 +2,10 @@
 var products = [];
 var pagination_offset = 0;
 var number_page = document.getElementById("number_page")
+var searched_input = ""
 let filters = {
     attribute : "nombre",
-    category : "ninguna",
-    priceMin : 0,
-    priceMax : 0
+    category : "none"
 }
 let municipios = [];
 
@@ -16,6 +15,9 @@ let user = {
     email : "",
     password : ""
 }
+
+
+
 window.addEventListener("scroll", function(){
     var header = document.querySelector("header");
     if(header)
@@ -24,9 +26,19 @@ window.addEventListener("scroll", function(){
 
 const pagination = document.querySelector('.pagination')
 
+function apply_filters(){
+    const attribute = document.querySelector("#filter_by_attribute");
+    const category = document.querySelector("#filter_by_category");
+    filters = {
+        attribute : attribute.value,
+        category : category.value
+    }
+    console.log(filters)
+    const myModal = new bootstrap.Modal(document.getElementById('filterModal'));
+    myModal.hide();
+}
 
-
-async function getProducts() {
+async function get_ten_products() {
     try {
         const url = `../webapi/products/get_ten?offset=${pagination_offset}`;
 
@@ -78,9 +90,9 @@ function showProducts(products){
             selectMunicipios.addEventListener('change', function() {
                 const id_municipio = this.value;
                 const id_product = p.id;
-                console.log(`Municipio ID: ${id_municipio} --- Product ID: ${id_product}`)
-                get_sell_point(id_municipio, id_product)
-    
+                console.log(`Municipio ID: ${id_municipio} --- Product ID: ${id_product}`);
+                get_sell_point(id_municipio, id_product);
+                get_product_municipio(id_municipio, id_product);
             })
             
     
@@ -98,18 +110,7 @@ function showProducts(products){
     number_page.innerHTML = 'Página ' + ((pagination_offset / 10) + 1)
 }
 
-function pagination_go_backward(){
-    if(pagination_offset != 1){
-        pagination_offset -= 10
-        getProducts()
-    }
-    
-}
 
-function pagination_go_forward(){
-    pagination_offset += 10;
-    getProducts()
-}
 
 async function get_municipios(){
     try {
@@ -153,5 +154,91 @@ function municipios_select2() {
     });
 }
 
+async function get_product_municipio(id_municipio, id_product){
+    try {
+        const url = `../webapi/products/get_product_municipio?id_municipio=${id_municipio}&id_producto=${id_product}`;
 
-getProducts()
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        p_m = await response.json(); 
+        if(p_m){
+            console.log(p_m)
+            document.getElementById('modal-product-implicit').innerText = 'Precio Implícito: ' + p_m[0].precioExplicito;
+            document.getElementById('modal-product-explicit').innerText = 'Precio Explícito: ' + p_m[0].precioImplicito;
+            document.getElementById('modal-product-divipola').innerText = 'Divipola: ' + p_m[0].divipola;
+        }
+
+    } catch (error) {
+        console.error('Error al buscar el producto_municipio:', error);
+    }
+}
+
+function find_products(){
+    pagination_offset = 0
+    const search_input = document.querySelector("#search_input");
+    searched_input = search_input.value
+    if(search_input.value || filters.category > 0){
+        
+        get_searched_products()
+    }else{
+        get_ten_products()
+    }
+}
+
+async function get_searched_products(){
+    try {
+        const url = `../webapi/products/get_searched_products?offset=${pagination_offset}&attribute=${filters.attribute}&category=${filters.category}&search_input=${searched_input}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        products = await response.json();
+        console.log(products); 
+        showProducts(products);
+        
+
+    } catch (error) {
+        console.error('Error al buscar el producto:', error);
+    }
+}
+
+function addToFavorites(){
+
+}
+
+function pagination_go_backward(){
+    if(pagination_offset != 1){
+        pagination_offset -= 10
+        if(searched_input){
+            get_searched_products()
+        }else{
+            get_ten_products() 
+        }
+        
+    }
+    
+}
+
+function pagination_go_forward(){
+    pagination_offset += 10;
+    if(searched_input){
+        get_searched_products()
+    }else{
+        get_ten_products() 
+    }
+}
+
+get_ten_products()
