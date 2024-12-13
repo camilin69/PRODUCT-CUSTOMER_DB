@@ -8,14 +8,8 @@ let filters = {
     category : "none"
 }
 let municipios = [];
-
-let user = {
-    id : 0,
-    role : "",
-    email : "",
-    password : ""
-}
-
+let id_municipio = 0;
+let id_product = 0 ;
 
 
 window.addEventListener("scroll", function(){
@@ -88,8 +82,8 @@ function showProducts(products){
             
             const selectMunicipios = document.getElementById("select_municipios");
             selectMunicipios.addEventListener('change', function() {
-                const id_municipio = this.value;
-                const id_product = p.id;
+                id_municipio = this.value;
+                id_product = p.id;
                 console.log(`Municipio ID: ${id_municipio} --- Product ID: ${id_product}`);
                 get_sell_point(id_municipio, id_product);
                 get_product_municipio(id_municipio, id_product);
@@ -136,6 +130,7 @@ async function get_municipios(){
 
 function municipios_to_select() {
     const selectMunicipios = document.getElementById("select_municipios");
+    selectMunicipios.disabled = false;
 
     selectMunicipios.innerHTML = '<option selected disabled value="">Municipios...</option>';
 
@@ -150,6 +145,13 @@ function municipios_to_select() {
 function municipios_select2() {
     $('#select_municipios').select2({
         placeholder: "Seleccione un municipio",
+        allowClear: true
+    });
+}
+
+function sell_point_select2() {
+    $('#select_sell_point').select2({
+        placeholder: "Seleccione un punto de venta",
         allowClear: true
     });
 }
@@ -178,6 +180,35 @@ async function get_product_municipio(id_municipio, id_product){
     } catch (error) {
         console.error('Error al buscar el producto_municipio:', error);
     }
+}
+
+async function find_user(email, password, role) {
+    try {
+        const url = `../webapi/login/find_user?email=${email}&password=${password}&role=${role}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const userInfo = await response.json();
+
+        
+        if (userInfo) {
+            saveUserToLocalStorage(userInfo, role, email, password);
+            
+            return true;  
+        }
+    } catch (error) {
+        console.error('Error al buscar el usuario:', error);
+    }
+
+    return false;  
 }
 
 function find_products(){
@@ -241,4 +272,20 @@ function pagination_go_forward(){
     }
 }
 
-get_ten_products()
+function saveUserToLocalStorage(id, role, email, password) {
+    const userData = {
+        id: id,
+        role: role,
+        email: email,
+        password: password
+    };
+    localStorage.setItem('user', JSON.stringify(userData)); // Guardamos los datos en localStorage
+}
+
+function getUserFromLocalStorage() {
+    const userData = localStorage.getItem('user'); 
+    return userData ? JSON.parse(userData) : null; 
+}
+
+if(window.location.href !== "../index/login.html")
+    get_ten_products()

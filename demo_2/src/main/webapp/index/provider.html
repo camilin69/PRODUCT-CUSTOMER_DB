@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><button onclick="change_view('products')">Productos</button></li>
-                <li><button onclick="change_view('distribution')">Distribucion</button></li>
+                <li><button onclick="change_view('distribution')">Puntos de Venta</button></li>
             </ul>
         </nav>
     </header>
@@ -64,7 +64,14 @@
     </div>
 
     <div class="container_content_distr">
-        <h2 style="color:#003985">Distribuir Productos:</h2>
+        <h2 style="color:#003985">Puntos de Venta:</h2>
+        <div class="container_sell_points">
+            <div class="form-floating mt-3" style="width: 90%;">
+                <select class="form-select" id="select_sell_point"></select>
+                <label for="select_sell_point">Punto de Venta: </label>
+            </div>
+            <button style="width: 10%;margin-top: 15px;" data-bs-toggle="modal" data-bs-target="#addSellPointModal"><i class="fa-solid fa-plus"></i></button>
+        </div>
         <div class="container_table">
             <table class="table mt-5" id="distr_products">
                 <thead>
@@ -78,21 +85,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>namedane1</th>
-                        <th>barcode1</th>
-                        <th>name1</th>
-                        <th>name1</th>
-                        <th>Hola</th>
-                        <th>321321</th>
-                    </tr>
                 </tbody>
             </table>
-            <div id="pagination" class="mt-5">
-                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_backward" onclick="pagination_go_backward()"><i style="color:white" class="fa-solid fa-backward"></i></button>
-                <span id="number_page">Página 1</span>
-                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_forward" onclick="pagination_go_forward()"><i style="color:white" class="fa-solid fa-forward"></i></button>
-            </div>
+            
         </div>
     </div>
 
@@ -160,6 +155,33 @@
                     <p id="modal-product-divipola">Divipola: </p>
                 </div>
                 <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addSellPointModal" tabindex="-1" aria-labelledby="addSellPointModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Registrar punto de venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form >
+                        <div class="form-floating mt-3">
+                            <input type="text" class="form-control" id="reg_name_sp" placeholder="Nombre del Punto de Venta" required>
+                            <label for="reg_id">Nombre</label>
+                        </div>
+                        <div class="form-floating mt-3">
+                            <input type="text" class="form-control" id="reg_address_sp" placeholder="Dirección Física del Punto de Venta" required>
+                            <label for="reg_name">Dirección</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="applyFilters" onclick="add_sell_point()" data-bs-dismiss="modal">Aplicar</button>
+                </div>
             </div>
         </div>
     </div>

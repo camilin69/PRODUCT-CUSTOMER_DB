@@ -13,8 +13,8 @@ def db_connection():
         connection = mysql.connector.connect(
             host='localhost', 
             database='consultorio_productos',
-            user='camilin',
-            password='imaccc'
+            user='root',
+            password='1050101218aA.!'
         )
 
         if connection.is_connected():

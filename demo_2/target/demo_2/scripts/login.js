@@ -7,7 +7,7 @@ const container_register = document.querySelector(".container_register")
 const regFormBy = document.querySelector('.reg_form_by_rol');
 const regRol = document.getElementById('reg_rol');
 
-let id_municipio = 0;
+
 var selected_role = "";
 
 
@@ -40,11 +40,6 @@ regRol.addEventListener("change", function() {
                     <label for="reg_age">Edad</label>
                     <div class="valid-feedback">Okey!</div>
                     <div class="invalid-feedback">Edad no válida! - <span class="reason-feedback"></span></div>
-                </div>
-                <div class="form-floating mt-3">
-                    <select class="form-select" id="select_municipios"></select>
-                    <div class="valid-feedback">Okey!</div>
-                    <div class="invalid-feedback">Selecciona un Municipio<span class="reason-feedback"></span></div>
                 </div>
                 <div class="form-floating mt-3 col-md-4">
                     <input type="number" class="form-control" id="reg_status" placeholder="Estrato" required>
@@ -124,45 +119,39 @@ regFormBy.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     if (submit_validations()) {
-        let data = {}
-        if(selected_role === "consumer"){
-            data = {
-                id: regFormBy.querySelector('#reg_id').value,
-                name: regFormBy.querySelector('#reg_name').value,
-                email: regFormBy.querySelector('#reg_email').value,
-                password: regFormBy.querySelector('#reg_password').value,
-                municipio_id: id_municipio,  
-                age: regFormBy.querySelector('#reg_age').value,                   
-                status: regFormBy.querySelector('#reg_status').value 
-                
-            };
-        }else if(selected_role === "provider"){
-            data = {
-                id: regFormBy.querySelector('#reg_id').value,
-                name: regFormBy.querySelector('#reg_name').value,
-                phone: regFormBy.querySelector('#reg_phone').value,
-                email: regFormBy.querySelector('#reg_email').value,
-                password: regFormBy.querySelector('#reg_password').value
-                
-            };
-        }else{
-            return;
-        }
-        
+        // Crear un objeto para los parámetros de la URL
+        let params = new URLSearchParams();
 
-        
+        // Asignar los parámetros dependiendo del rol seleccionado
+        if (selected_role === "consumer") {
+            params.append('id', regFormBy.querySelector('#reg_id').value);
+            params.append('name', regFormBy.querySelector('#reg_name').value);
+            params.append('email', regFormBy.querySelector('#reg_email').value);
+            params.append('password', regFormBy.querySelector('#reg_password').value);
+            params.append('age', regFormBy.querySelector('#reg_age').value);
+            params.append('status', regFormBy.querySelector('#reg_status').value);
+        } else if (selected_role === "provider") {
+            params.append('id', regFormBy.querySelector('#reg_id').value);
+            params.append('name', regFormBy.querySelector('#reg_name').value);
+            params.append('phone', regFormBy.querySelector('#reg_phone').value);
+            params.append('email', regFormBy.querySelector('#reg_email').value);
+            params.append('password', regFormBy.querySelector('#reg_password').value);
+        } else {
+            return; 
+        }
+
         try {
-            const response = await fetch('../webapi/register/reg_' + selected_role, {
-                method: 'POST',
+            const response = await fetch('../webapi/register/reg_' + selected_role + '?' + params.toString(), {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
             });
 
             if (response.ok) {
                 const message = await response.json();
-                alert(message);
+                alert(message.message); 
+                location.reload()
             } else {
                 alert("Registration failed.");
             }
@@ -175,6 +164,7 @@ regFormBy.addEventListener("submit", async function (event) {
         console.log('Form validation failed');
     }
 });
+
 
 
 async function submit_validations(){
@@ -278,26 +268,6 @@ async function submit_validations(){
 
         });
 
-        if(selected_role === "consumer"){
-            const municipio_select = document.getElementById("select_municipios")
-            const group = municipio_select.closest(".form-floating");
-            const valid_feedback = group.querySelector(".valid-feedback")
-            const invalid_feedback = group.querySelector(".invalid-feedback")
-
-            valid_feedback.style.display = "none";
-            invalid_feedback.style.display = "none";
-
-            if (municipio_select.value === "" || municipio_select.selectedIndex === 0) {
-                invalid_feedback.style.display = "block"
-                isValid = false;
-            } else {
-                valid_feedback.style.display = "block";
-                const selectedMunicipio = municipios.find(municipio => municipio.id == municipio_select.value);
-                if (selectedMunicipio) {
-                    id_municipio = selectedMunicipio.id;
-                }
-            }
-        }
 
         return isValid;
     }
@@ -367,38 +337,8 @@ async function login() {
 }
 
 
-async function find_user(email, password, role) {
-    try {
-        const url = `../webapi/login/find_user?email=${email}&password=${password}&role=${role}`;
 
-        const options = {
-            method: 'GET',
-        };
 
-        const response = await fetch(url, options);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const userInfo = await response.json();
-
-        
-        if (userInfo) {
-            user = {
-                id: userResponse.id,  
-                role: role,
-                email: email,
-                password: password
-            };
-            return true;  
-        }
-    } catch (error) {
-        console.error('Error al buscar el usuario:', error);
-    }
-
-    return false;  
-}
 
 
 async function find_user_reg(id, role) {

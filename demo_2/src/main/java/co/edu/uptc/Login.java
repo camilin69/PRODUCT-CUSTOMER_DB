@@ -14,7 +14,6 @@ import jakarta.ws.rs.core.MediaType;
 @Path("login")
 public class Login {
 
-    private static final String SECRET = "123456789"; // Reemplaza con tu clave secreta
 
     @GET
     @Path("find_user")

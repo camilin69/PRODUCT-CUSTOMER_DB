@@ -15,6 +15,11 @@ public class SellPoint {
         this.priceExplicit = priceExplicit;
         this.divipola = divipola;
     }
+    public SellPoint(int id, String name, String address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
     public int getId() {
         return id;
     }
