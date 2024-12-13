@@ -25,7 +25,7 @@
         <h2 style="color:#003985">Buscar Productos:</h2>
         <div class="container_search mt-5">
             <input type="search" class="form-control" id="search_input" placeholder="Buscar Producto...">
-            <button id="search_button" onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="search_button" onclick="get_searched_products()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
             <button id="filter_button" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
         </div>
 
@@ -129,7 +129,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="applyFilters" onclick="apply_filters()">Aplicar</button>
+                    <button type="button" class="btn btn-primary" id="applyFilters" onclick="apply_filters()" data-bs-dismiss="modal">Aplicar</button>
                 </div>
             </div>
         </div>

@@ -42,10 +42,9 @@ document.querySelectorAll('#distr_products tbody tr').forEach(row => {
     });
 });
 
-function apply_filters(){
-
+function get_sell_point(id_municipio, id_product){
+    
 }
-
 
 function change_view(name){
     container_content_products.style.display = 'none';
