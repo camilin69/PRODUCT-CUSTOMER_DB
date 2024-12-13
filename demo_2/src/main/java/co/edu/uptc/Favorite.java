@@ -2,7 +2,7 @@ package co.edu.uptc;
 
 
 
-public class FavoriteDTO {
+public class Favorite {
 
     private int idConsumidor;
     private int idProductoPuntoVenta;
@@ -10,10 +10,10 @@ public class FavoriteDTO {
     private String brand;
     private String sellPointName;
 
-    public FavoriteDTO() {
+    public Favorite() {
     }
 
-    public FavoriteDTO(int idConsumidor, int idProductoPuntoVenta, String productName, String brand, String sellPointName) {
+    public Favorite(int idConsumidor, int idProductoPuntoVenta, String productName, String brand, String sellPointName) {
         this.idConsumidor = idConsumidor;
         this.idProductoPuntoVenta = idProductoPuntoVenta;
         this.productName = productName;

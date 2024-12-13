@@ -30,7 +30,7 @@
             <button id="filter_button" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
         </div>
 
-        
+
 
         <div class="container_table">
             <table class="table mt-5" id="products_table">
@@ -53,7 +53,7 @@
                 <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_forward" onclick="pagination_go_forward()"><i style="color:white" class="fa-solid fa-forward"></i></button>
             </div>
         </div>
-        
+
     </div>
 
     <div class="container_content_favs">
@@ -61,14 +61,12 @@
         <div class="container_table">
             <table class="table mt-5" id="favorites_table">
                 <thead>
-                    <tr>
-                        <th style="width: 100px;">Nombre DANE</th>
-                        <th style="width: 100px;">Código de Barras</th>
-                        <th style="width: 200px;">Nombre</th>
-                        <th style="width: 50px;">Marca</th>
-                        <th style="width: 200px;">Empresa</th>
-                        <th style="width: 100px;">Precio Explicito</th>
-                    </tr>
+                <tr>
+                    <th>Producto</th>
+                    <th>Marca</th>
+                    <th>Punto de Venta</th>
+                    <th>Acciones</th>
+                </tr>
                 </thead>
                 <tbody>
                 </tbody>
@@ -99,7 +97,7 @@
                     </tr>
                 </thead>
                 <tbody >
-                    
+
                 </tbody>
             </table>
             <div id="pagination" class="mt-5">
@@ -163,7 +161,7 @@
                                 <label for="filter_by_category">Buscar Por Categoria</label>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <form class="form-floating mb-2">
                                 <input type="number" class="form-control" id="filter_price_min">
@@ -175,7 +173,7 @@
                                 <label for="filter_price_max">Precio máximo</label>
                             </form>
                         </div>
-                    
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -185,6 +183,7 @@
             </div>
         </div>
     </div>
+    
 
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog">

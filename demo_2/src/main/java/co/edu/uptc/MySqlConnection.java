@@ -12,6 +12,11 @@ public class MySqlConnection {
     private static final String PASSWORD = "1050101218aA.!";
 
     public static Connection getConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 }

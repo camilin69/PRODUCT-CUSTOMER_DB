@@ -7,14 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.edu.uptc.entities.Municipio;
-import co.edu.uptc.entities.Product;
-import co.edu.uptc.entities.Provider;
-import co.edu.uptc.entities.SellPoint;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
+import co.edu.uptc.entities.*;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -149,13 +143,11 @@ public class Products {
     @Path("get_proveedores")
     @Produces(MediaType.APPLICATION_JSON)
     public Response get_proveedores() {
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("MySQL Driver not found", e);
         }
-
         List<Provider> proveedores = new ArrayList<>();
         try (Connection c = MySqlConnection.getConnection()) {
 
@@ -174,12 +166,85 @@ public class Products {
 
         return Response.ok(proveedores).build();
     }
-    @GET
-    @Path("test_proveedores")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String test_proveedores() {
-        return "Proveedores endpoint funcionando";
+
+    @POST
+    @Path("add_favorite")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addFavorite(Favorite favorite) {
+        String sql = "INSERT INTO consumidor_producto_punto_venta (idConsumidor, idProductoPuntoVenta) VALUES (?, ?)";
+        try (Connection conn = MySqlConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, favorite.getIdConsumidor());
+            stmt.setInt(2, favorite.getIdProductoPuntoVenta());
+            stmt.executeUpdate();
+            return Response.ok("{\"message\":\"Favorite added successfully\"}").build();
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"message\":\"Error adding favorite: " + e.getMessage() + "\"}")
+                    .build();
+        }
     }
+
+    @DELETE
+    @Path("remove_favorite")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response removeFavorite(Favorite favorite) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
+        String sql = "DELETE FROM consumidor_producto_punto_venta WHERE idConsumidor = ? AND idProductoPuntoVenta = ?";
+        try (Connection conn = MySqlConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, favorite.getIdConsumidor());
+            stmt.setInt(2, favorite.getIdProductoPuntoVenta());
+            stmt.executeUpdate();
+            return Response.ok("{\"message\":\"Favorite removed successfully\"}").build();
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"message\":\"Error removing favorite: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+    @GET
+    @Path("get_favorites")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getFavorites(@QueryParam("idConsumidor") int idConsumidor) {
+        String sql = """
+    SELECT cp.idConsumidor, ppv.id AS idProductoPuntoVenta, p.nombre AS productName, 
+           p.marca AS brand, pv.nombre AS sellPointName
+    FROM consumidor_producto_punto_venta cp
+    JOIN producto_punto_venta ppv ON cp.idProductoPuntoVenta = ppv.id
+    JOIN producto_municipio pm ON ppv.idProductoMunicipio = pm.id
+    JOIN productos p ON pm.idProducto = p.id
+    JOIN puntos_venta pv ON ppv.idPuntoVenta = pv.id
+    WHERE cp.idConsumidor = ?;
+    """;
+
+        try (Connection conn = MySqlConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, idConsumidor);
+            try (ResultSet rs = stmt.executeQuery()) {
+                List<Favorite> favorites = new ArrayList<>();
+                while (rs.next()) {
+                    Favorite favorite = new Favorite();
+                    favorite.setIdConsumidor(rs.getInt("idConsumidor"));
+                    favorite.setIdProductoPuntoVenta(rs.getInt("idProductoPuntoVenta"));
+                    favorite.setProductName(rs.getString("productName"));
+                    favorite.setBrand(rs.getString("brand"));
+                    favorite.setSellPointName(rs.getString("sellPointName"));
+                    favorites.add(favorite);
+                }
+                return Response.ok(favorites).build();
+            }
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"message\":\"Error fetching favorites: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+
 
 
 
