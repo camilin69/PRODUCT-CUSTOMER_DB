@@ -4,27 +4,48 @@ const container_content_providers = document.querySelector(".container_content_p
 
 const modalFooter = document.querySelector('#infoModal .modal-dialog .modal-content .modal-footer');
 
-document.querySelectorAll('#products_table tbody tr').forEach(row => {
-    row.addEventListener('click', function() {
-        
-        const productName = this.cells[2].innerText; 
-        const productCode = this.cells[1].innerText; 
-        const productBrand = this.cells[3].innerText; 
-        const productCompany = this.cells[4].innerText;
-        const productPrice = this.cells[5].innerText; 
 
-        document.getElementById('modal-product-name').innerText = 'Nombre del Producto: ' + productName;
-        document.getElementById('modal-product-code').innerText = 'Código de Barras: ' + productCode;
-        document.getElementById('modal-product-brand').innerText = 'Marca: ' + productBrand;
-        document.getElementById('modal-product-company').innerText = 'Empresa: ' + productCompany;
-        document.getElementById('modal-product-price').innerText = 'Precio: ' + productPrice;
-        const typeBtn = document.createElement('button');
-        typeBtn.onclick = addToFavorites()
-        set_buttons_modal_info('prod', typeBtn)
-        const myModal = new bootstrap.Modal(document.getElementById('infoModal'));
-        myModal.show();
+
+
+async function get_sell_point(id_municipio, id_producto) {
+    try {
+        const url = `../webapi/products/get_sell_point_consumer?id_municipio=${id_municipio}&id_producto=${id_producto}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const sellPoints = await response.json(); 
+        update_sell_point_select(sellPoints);
+
+    } catch (error) {
+        console.error('Error al obtener los puntos de venta:', error);
+    }
+}
+
+function update_sell_point_select(sellPoints) {
+    const selectSellPoint = document.getElementById('select_sell_point');
+    selectSellPoint.innerHTML = ''; 
+
+    sellPoints.forEach(sellPoint => {
+        const option = document.createElement('option');
+        option.value = sellPoint.id; 
+        option.textContent = `${sellPoint.name} - ${sellPoint.address}`;
+        selectSellPoint.appendChild(option);
+
+        selectSellPoint.addEventListener('change', function() {
+            document.getElementById('modal-product-implicit').innerText = 'Precio Implícito: ' + sellPoint.priceImplicit;
+            document.getElementById('modal-product-explicit').innerText = 'Precio Explícito: ' + sellPoint.priceExplicit;
+            document.getElementById('modal-product-divipola').innerText = 'Divipola: ' + sellPoint.divipola;
+        })
     });
-});
+    
+}
 
 document.querySelectorAll('#favorites_table tbody tr').forEach(row => {
     row.addEventListener('click', function() {
@@ -33,13 +54,11 @@ document.querySelectorAll('#favorites_table tbody tr').forEach(row => {
         const productCode = this.cells[1].innerText; 
         const productBrand = this.cells[3].innerText; 
         const productCompany = this.cells[4].innerText;
-        const productPrice = this.cells[5].innerText; 
 
         document.getElementById('modal-product-name').innerText = 'Nombre del Producto: ' + productName;
         document.getElementById('modal-product-code').innerText = 'Código de Barras: ' + productCode;
         document.getElementById('modal-product-brand').innerText = 'Marca: ' + productBrand;
         document.getElementById('modal-product-company').innerText = 'Empresa: ' + productCompany;
-        document.getElementById('modal-product-price').innerText = 'Precio: ' + productPrice;
         const typeBtn = document.createElement('button');
         typeBtn.onclick = removeFromFavorites()
         set_buttons_modal_info('fav', typeBtn)
@@ -109,3 +128,4 @@ async function addToFavorites(idProduct){
 async function removeFromFavorites(){
 
 }
+

@@ -38,9 +38,9 @@
                         <th style="width: 100px;">Nombre DANE</th>
                         <th style="width: 100px;">Código de Barras</th>
                         <th style="width: 200px;">Nombre</th>
+                        <th style="width: 200px;">Unidad</th>
                         <th style="width: 50px;">Marca</th>
                         <th style="width: 200px;">Empresa</th>
-                        <th style="width: 100px;">Precio Explicito</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,9 +48,9 @@
                         <th>namedane1</th>
                         <th>barcode1</th>
                         <th>name1</th>
+                        <th>name1</th>
                         <th>Hola</th>
                         <th>321321</th>
-                        <th>Hola</th>
                     </tr>
                 </tbody>
             </table>
@@ -72,9 +72,9 @@
                         <th style="width: 100px;">Nombre DANE</th>
                         <th style="width: 100px;">Código de Barras</th>
                         <th style="width: 200px;">Nombre</th>
+                        <th style="width: 200px;">Unidad</th>
                         <th style="width: 50px;">Marca</th>
                         <th style="width: 200px;">Empresa</th>
-                        <th style="width: 100px;">Precio Explicito</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,8 +82,8 @@
                         <th>namedane1</th>
                         <th>barcode1</th>
                         <th>name1</th>
+                        <th>name1</th>
                         <th>Hola</th>
-                        <th>321321</th>
                         <th>321321</th>
                     </tr>
                 </tbody>
@@ -108,24 +108,22 @@
                         <div class="col-md-6 mb-2">
                             <div class="form-floating mb-2">
                                 <select class="form-select" id="filter_by_attribute" aria-label="Floating label select example">
-                                    <option selected>Nombre</option>
-                                    <option value="namedane">Nombre DANE</option>
-                                    <option value="brand">Marca</option>
-                                    <option value="company">Empresa</option>
-                                    <option value="barcode">Código de Barras</option>
-                                    <option value="divipola">Divipola</option>
-                                    <option value="mnicipio">Municipio</option>
+                                    <option selected>nombre</option>
+                                    <option value="namedane">nombre DANE</option>
+                                    <option value="brand">marca</option>
+                                    <option value="company">empresa</option>
+                                    <option value="barcode">codigo Barras</option>
                                 </select>
                                 <label for="filter_by_attribute">Buscar Por Atributo</label>
                             </div>
 
                             <div class="form-floating mb-2">
                                 <select class="form-select" id="filter_by_category" aria-label="Floating label select example">
-                                    <option selected>Ninguna</option>
-                                    <option value="consume">Consumo</option>
-                                    <option value="food">Comida</option>
-                                    <option value="drink">Bebidas</option>
-                                    <option value="medication">Medicacion</option>
+                                    <option selected>ninguna</option>
+                                    <option value="consume">Alimentos y Bebidas</option>
+                                    <option value="food">Medicamentos</option>
+                                    <option value="drink">Artículos de Higiene y Cuidado Personal</option>
+                                    <option value="medication">Equipos y Materiales Médicos</option>
                                 </select>
                                 <label for="filter_by_category">Buscar Por Categoria</label>
                             </div>
@@ -147,7 +145,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="applyFilters">Aplicar</button>
+                    <button type="button" class="btn btn-primary" onclick="apply_filters()">Aplicar</button>
                 </div>
             </div>
         </div>
@@ -165,49 +163,23 @@
                     <p id="modal-product-code">Código de Barras: </p>
                     <p id="modal-product-brand">Marca: </p>
                     <p id="modal-product-company">Empresa: </p>
-                    <p id="modal-product-price">Precio: </p>
+                    <div class="form-floating mt-3">
+                        <select class="form-select" id="select_municipios"></select>
+                        <label for="select_municipios">Municipio: </label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <select class="form-select" id="select_sell_point"></select>
+                        <label for="select_sell_point">Punto de Venta: </label>
+                    </div>
+                    <p id="modal-product-implicit">Precio Implícito: </p>
+                    <p id="modal-product-explicit">Precio Explícito: </p>
+                    <p id="modal-product-divipola">Divipola: </p>
                 </div>
                 <div class="modal-footer"></div>
             </div>
         </div>
     </div>
 
-    <footer class="bg-light text-center text-lg-start mt-5">
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 mb-4">
-                    <h5 class="text-uppercase">Sobre Nosotros</h5>
-                    <p>
-                        Somos un consultorio dedicado a ofrecer información y productos de calidad para consumidores. Nuestro objetivo es ayudarte a tomar decisiones informadas.
-                    </p>
-                </div>
-    
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5 class="text-uppercase">Enlaces útiles</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-dark">Términos y Condiciones</a></li>
-                        <li><a href="#" class="text-dark">Política de Privacidad</a></li>
-                        <li><a href="#" class="text-dark">Preguntas Frecuentes</a></li>
-                    </ul>
-                </div>
-    
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5 class="text-uppercase">Contáctanos</h5>
-                    <p>Correo: contacto@example.com</p>
-                    <p>Teléfono: (123) 456-7890</p>
-                    <div>
-                        <a href="#" class="text-dark"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="text-center p-3" style="background-color: #f8f9fa;">
-            © 2024 Consultorio para Consumidores. Todos los derechos reservados.
-        </div>
-    </footer>
     <script src="../scripts/provider.js"></script>
     <script src="../scripts/products.js"></script>
     

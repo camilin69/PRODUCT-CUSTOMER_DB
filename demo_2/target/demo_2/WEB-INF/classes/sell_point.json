@@ -1,0 +1,12 @@
+[
+    {"id":1, "idProveedor" : 1, "direccion" : "cdasdsa", "nombre" : "punto venta 1" },
+    {"id":2, "idProveedor" : 1, "direccion" : "cdasdsa", "nombre" : "punto venta 2" },
+    {"id":3, "idProveedor" : 1, "direccion" : "cdasdsa", "nombre" : "punto venta 3" },
+    {"id":4, "idProveedor" : 1, "direccion" : "cdasdsa", "nombre" : "punto venta 4" },
+    {"id":5, "idProveedor" : 2, "direccion" : "cdasdsa", "nombre" : "punto venta 5" },
+    {"id":6, "idProveedor" : 3, "direccion" : "cdasdsa", "nombre" : "punto venta 6" },
+    {"id":7, "idProveedor" : 3, "direccion" : "cdasdsa", "nombre" : "punto venta 7" },
+    {"id":8, "idProveedor" : 3, "direccion" : "cdasdsa", "nombre" : "punto venta 8" },
+    {"id":9, "idProveedor" : 4, "direccion" : "cdasdsa", "nombre" : "punto venta 9" },
+    {"id":10, "idProveedor" : 4, "direccion" : "cdasdsa", "nombre" : "punto venta 10" }
+]

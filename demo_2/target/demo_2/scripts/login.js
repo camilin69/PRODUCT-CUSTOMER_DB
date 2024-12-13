@@ -6,7 +6,7 @@ const container_login = document.querySelector(".container_login")
 const container_register = document.querySelector(".container_register")
 const regFormBy = document.querySelector('.reg_form_by_rol');
 const regRol = document.getElementById('reg_rol');
-let municipios = [];
+
 let id_municipio = 0;
 var selected_role = "";
 
@@ -328,7 +328,6 @@ function change_view(name){
 }
 
 async function login() {
-
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -347,19 +346,26 @@ async function login() {
         return;
     }
 
-    const userFound = await find_user(email, password, role);
+    try {
+        const userResponse = await find_user(email, password, role);
 
-    if (userFound) {
-        if (role === 'consumer') {
-            window.location.href = '../index/consumer.html'; 
-        } else if (role === 'provider') {
-            window.location.href = '../index/provider.html';  
+        if (userResponse) {
+            
+
+            if (role === 'consumer') {
+                window.location.href = '../index/consumer.html'; 
+            } else if (role === 'provider') {
+                window.location.href = '../index/provider.html';  
+            }
+        } else {
+            alert('Credenciales incorrectas o usuario no encontrado');
         }
-    } else {
-        
-        alert('Credenciales incorrectas o usuario no encontrado');
+    } catch (error) {
+        console.error("Error en el login:", error);
+        alert('Hubo un error al intentar iniciar sesión. Por favor, inténtalo nuevamente.');
     }
 }
+
 
 async function find_user(email, password, role) {
     try {
@@ -370,19 +376,30 @@ async function find_user(email, password, role) {
         };
 
         const response = await fetch(url, options);
+
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const consumer_info = await response.json(); 
-        if (consumer_info) {
+        const userInfo = await response.json();
+
+        
+        if (userInfo) {
+            user = {
+                id: userResponse.id,  
+                role: role,
+                email: email,
+                password: password
+            };
             return true;  
         }
     } catch (error) {
         console.error('Error al buscar el usuario:', error);
     }
+
     return false;  
 }
+
 
 async function find_user_reg(id, role) {
     try {
@@ -406,50 +423,6 @@ async function find_user_reg(id, role) {
     }
     return false;  
 }
-
-async function get_municipios(){
-    try {
-        const url = `../webapi/login/get_municipios`;
-
-        const options = {
-            method: 'GET',
-        };
-
-        const response = await fetch(url, options);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        municipios = await response.json(); 
-        municipios_to_select();
-        municipios_select2();
-
-    } catch (error) {
-        console.error('Error al buscar el usuario:', error);
-    }
-}
-
-function municipios_to_select() {
-    const selectMunicipios = document.getElementById("select_municipios");
-
-    selectMunicipios.innerHTML = '<option selected disabled value="">Municipios...</option>';
-
-    municipios.forEach(municipio => {
-        const option = document.createElement("option");
-        option.value = municipio.id; 
-        option.textContent = municipio.name; 
-        selectMunicipios.appendChild(option);
-    });
-}
-
-function municipios_select2() {
-    $('#select_municipios').select2({
-        placeholder: "Seleccione un municipio",
-        allowClear: true
-    });
-}
-
-
 
 
 function showAlert(message) {

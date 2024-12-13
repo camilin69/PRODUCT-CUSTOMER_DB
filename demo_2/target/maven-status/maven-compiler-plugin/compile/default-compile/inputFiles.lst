@@ -5,6 +5,7 @@
 /home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/Consumer.java
 /home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/Product.java
 /home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/Provider.java
+/home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/SellPoint.java
 /home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/entities/Municipio.java
 /home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/MySqlConnection.java
 /home/camilin/Documents/GITHUB/PRODUCT-CUSTOMER_DB/demo_2/src/main/java/co/edu/uptc/Products.java

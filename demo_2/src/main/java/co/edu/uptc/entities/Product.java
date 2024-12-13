@@ -9,12 +9,13 @@ public class Product {
     private String brand;
     private String company;
     private int idCategory;
-    private double priceImplicit;
-    private double priceExplicit;
 
     public Product() {}
 
-    public Product(String id, String nameDane, String barcode, String name, String unity, String brand, String company, int idCategory, double priceImplicit, double priceExplicit) {
+    
+    
+    public Product(String id, String nameDane, String barcode, String name, String unity, String brand, String company,
+            int idCategory) {
         this.id = id;
         this.nameDane = nameDane;
         this.barcode = barcode;
@@ -23,10 +24,10 @@ public class Product {
         this.brand = brand;
         this.company = company;
         this.idCategory = idCategory;
-        this.priceImplicit = priceImplicit;
-        this.priceExplicit = priceExplicit;
     }
-    
+
+
+
     // Getters y Setters
     public String getId() {
         return id;
@@ -75,17 +76,5 @@ public class Product {
     }
     public void setIdCategory(int idCategory) {
         this.idCategory = idCategory;
-    }
-    public double getPriceImplicit() {
-        return priceImplicit;
-    }
-    public void setPriceImplicit(double priceImplicit) {
-        this.priceImplicit = priceImplicit;
-    }
-    public double getPriceExplicit() {
-        return priceExplicit;
-    }
-    public void setPriceExplicit(double priceExplicit) {
-        this.priceExplicit = priceExplicit;
     }
 }

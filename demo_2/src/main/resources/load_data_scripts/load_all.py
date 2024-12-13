@@ -37,6 +37,8 @@ def main():
         load_others.insert_categories_in_table( connection )
         load_others.insert_providers_in_table( connection )
         load_others.insert_consumers_in_table( connection )
+        load_others.insert_sell_point_in_table( connection )
+        load_others.insert_product_sell_point_in_table( connection )
         load_products.insert_all()
         
         connection.close()

@@ -70,3 +70,49 @@ def insert_consumers_in_table( connection ):
             connection.rollback() 
         finally:
             cursor.close()
+
+def insert_sell_point_in_table( connection ):
+    with open('../sell_point.json') as file:
+        data = json.load(file)
+    
+    cursor = connection.cursor()
+
+    sql = "INSERT INTO puntos_venta (id, idProveedor, direccion, nombre) VALUES (%s, %s, %s, %s)"
+    
+    consumers_to_insert = []
+    if data:
+        for item in data:
+            consumers_to_insert.append((item['id'], item['idProveedor'], item['direccion'], item['nombre']))
+
+        try:
+            cursor.executemany(sql, consumers_to_insert)
+            connection.commit()
+
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+            connection.rollback() 
+        finally:
+            cursor.close()
+            
+def insert_product_sell_point_in_table( connection ):
+    with open('../product_sell_point.json') as file:
+        data = json.load(file)
+    
+    cursor = connection.cursor()
+
+    sql = "INSERT INTO producto_punto_venta (idProductoMunicipio, idPuntoVenta) VALUES (%s, %s)"
+    
+    consumers_to_insert = []
+    if data:
+        for item in data:
+            consumers_to_insert.append((item['idProductoMunicipio'], item['idPuntoVenta']))
+
+        try:
+            cursor.executemany(sql, consumers_to_insert)
+            connection.commit()
+
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+            connection.rollback() 
+        finally:
+            cursor.close()

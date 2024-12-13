@@ -6,10 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import co.edu.uptc.entities.Product;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import jakarta.ws.rs.*;
+
+import co.edu.uptc.entities.Product;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -117,9 +123,7 @@ public class Favorites {
                             rs.getString("unidad"),
                             rs.getString("marca"),
                             rs.getString("empresa"),
-                            rs.getInt("id_category"),
-                            rs.getDouble("precioImplicito"),
-                            rs.getDouble("precioExplicito")
+                            rs.getInt("id_category")
                     );
                     favorites.add(product);
                 }
