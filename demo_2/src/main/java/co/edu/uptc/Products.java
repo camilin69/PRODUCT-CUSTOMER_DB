@@ -9,6 +9,7 @@ import java.util.List;
 
 import co.edu.uptc.entities.Municipio;
 import co.edu.uptc.entities.Product;
+import co.edu.uptc.entities.Provider;
 import co.edu.uptc.entities.SellPoint;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -144,5 +145,43 @@ public class Products {
 
         return Response.ok(municipios).build();
     }
+    @GET
+    @Path("get_proveedores")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get_proveedores() {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
+
+        List<Provider> proveedores = new ArrayList<>();
+        try (Connection c = MySqlConnection.getConnection()) {
+
+            String sql = "SELECT * FROM proveedores;";
+
+            try (PreparedStatement statement = c.prepareStatement(sql)) {
+                try (ResultSet rs = statement.executeQuery()) {
+                    while (rs.next()) {
+                        proveedores.add(new Provider(rs.getInt("id"), rs.getString("nombre"),rs.getString("telefono"),rs.getString("email"),rs.getString("contra"),null));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error on query SQL: " + e.getMessage(), e);
+        }
+
+        return Response.ok(proveedores).build();
+    }
+    @GET
+    @Path("test_proveedores")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String test_proveedores() {
+        return "Proveedores endpoint funcionando";
+    }
+
+
+
 
 }

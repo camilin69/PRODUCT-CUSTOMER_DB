@@ -1,0 +1,1967 @@
+miar este proyecto 
+package co.edu.uptc.entities;
+
+public class Category {
+    private int id;
+    private String name;
+    private String description;
+
+    public Category() {}
+
+    public Category(int id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+    
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
+package co.edu.uptc.entities;
+
+public class Consumer {
+    private int id;
+    private String name;
+    private int age;
+    private String municipio;
+    private int estrato;
+    private String email;
+    private String password;
+
+    public Consumer() {}
+
+    public Consumer(int id, String name, int age, String municipio, int estrato, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.municipio = municipio;
+        this.estrato = estrato;
+        this.email = email;
+        this.password = password;
+    }
+    
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String getMunicipio() {
+        return municipio;
+    }
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+    public int getEstrato() {
+        return estrato;
+    }
+    public void setEstrato(int estrato) {
+        this.estrato = estrato;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+package co.edu.uptc.entities;
+
+public class Municipio {
+    private int id;
+    private String name;
+
+    public Municipio() {}
+
+    public Municipio(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+package co.edu.uptc.entities;
+
+public class Product {
+    private String id;
+    private String nameDane;
+    private String barcode;
+    private String name;
+    private String unity;
+    private String brand;
+    private String company;
+    private int idCategory;
+
+    public Product() {}
+
+    
+    
+    public Product(String id, String nameDane, String barcode, String name, String unity, String brand, String company,
+            int idCategory) {
+        this.id = id;
+        this.nameDane = nameDane;
+        this.barcode = barcode;
+        this.name = name;
+        this.unity = unity;
+        this.brand = brand;
+        this.company = company;
+        this.idCategory = idCategory;
+    }
+
+
+
+    // Getters y Setters
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getNameDane() {
+        return nameDane;
+    }
+    public void setNameDane(String nameDane) {
+        this.nameDane = nameDane;
+    }
+    public String getBarcode() {
+        return barcode;
+    }
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getUnity() {
+        return unity;
+    }
+    public void setUnity(String unity) {
+        this.unity = unity;
+    }
+    public String getBrand() {
+        return brand;
+    }
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+    public String getCompany() {
+        return company;
+    }
+    public void setCompany(String company) {
+        this.company = company;
+    }
+    public int getIdCategory() {
+        return idCategory;
+    }
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
+    }
+}
+package co.edu.uptc.entities;
+
+public class Provider {
+    private int id;
+    private String name;
+    private String phone;
+    private String email;
+    private String password;
+    private String address;
+
+    public Provider() {}
+
+    public Provider(int id, String name, String phone, String email, String password, String address) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+    }
+    
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
+
+package co.edu.uptc.entities;
+
+public class SellPoint {
+    private int id;
+    private String name;
+    private String address;
+    private int priceImplicit;
+    private int priceExplicit;
+    private int divipola;
+    public SellPoint(int id, String name, String address, int priceImplicit, int priceExplicit, int divipola) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.priceImplicit = priceImplicit;
+        this.priceExplicit = priceExplicit;
+        this.divipola = divipola;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public int getPriceImplicit() {
+        return priceImplicit;
+    }
+    public void setPriceImplicit(int priceImplicit) {
+        this.priceImplicit = priceImplicit;
+    }
+    public int getPriceExplicit() {
+        return priceExplicit;
+    }
+    public void setPriceExplicit(int priceExplicit) {
+        this.priceExplicit = priceExplicit;
+    }
+    public int getDivipola() {
+        return divipola;
+    }
+    public void setDivipola(int divipola) {
+        this.divipola = divipola;
+    }
+
+    
+
+
+}
+package co.edu.uptc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
+
+@Path("login")
+public class Login {
+
+    private static final String SECRET = "123456789"; // Reemplaza con tu clave secreta
+
+    @GET
+    @Path("find_user")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Integer find_user(@QueryParam("email") String email, 
+                            @QueryParam("password") String password, 
+                            @QueryParam("role") String role) {
+
+        // Verificar que los parámetros no sean nulos o vacíos
+        if (email == null || email.isEmpty() || password == null || password.isEmpty() || role == null || role.isEmpty()) {
+            throw new RuntimeException("Email, Password or Role Missed");
+        }
+
+        Integer userId = null;
+
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
+
+        try (Connection c = MySqlConnection.getConnection()) {
+
+            String table = role.equals("consumer")?"consumidores":"proveedores";
+            
+            String sql = "SELECT * FROM " + table + " WHERE email = ? AND contra = ?";
+            
+            try (PreparedStatement statement = c.prepareStatement(sql)) {
+
+                statement.setString(1, email);
+                statement.setString(2, password);
+
+                try (ResultSet rs = statement.executeQuery()) {
+                    if (rs.next()) {
+                        userId = rs.getInt("id");  
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error en la consulta SQL: " + e.getMessage(), e);
+        }
+
+        return userId;
+    }
+
+    
+}
+package co.edu.uptc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MySqlConnection {
+
+    private static final String DATABASE = "consultorio_productos";
+    private static final String URL = "jdbc:mysql://localhost:3306/" + DATABASE + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "1050101218aA.!";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    }
+}
+package co.edu.uptc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import co.edu.uptc.entities.Municipio;
+import co.edu.uptc.entities.Product;
+import co.edu.uptc.entities.SellPoint;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
+@Path("products")
+public class Products {
+
+    @GET
+    @Path("get_sell_point_consumer")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get_sell_point_consumer(@QueryParam("id_municipio") int id_municipio,
+                                            @QueryParam("id_producto") int id_producto) {
+        ArrayList<SellPoint> sellPoints = new ArrayList<>();  // Cambio a SellPoint en lugar de Product
+
+        String sql = """
+                    SELECT pv.id AS punto_venta_id,
+                            pv.nombre AS punto_venta_nombre,
+                            pv.direccion AS punto_venta_direccion,
+                            pm.precioImplicito,
+                            pm.precioExplicito,
+                            pm.divipola
+                    FROM producto_municipio pm
+                    JOIN producto_punto_venta ppv ON pm.id = ppv.idProductoMunicipio
+                    JOIN puntos_venta pv ON ppv.idPuntoVenta = pv.id
+                    WHERE pm.idMunicipio = ? AND pm.idProducto = ?;
+                    """;
+
+        try (Connection c = MySqlConnection.getConnection();
+            PreparedStatement stmt = c.prepareStatement(sql)) {
+
+            stmt.setInt(1, id_municipio);
+            stmt.setInt(2, id_producto);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    int puntoVentaId = rs.getInt("punto_venta_id");
+                    String puntoVentaNombre = rs.getString("punto_venta_nombre");
+                    String puntoVentaDireccion = rs.getString("punto_venta_direccion");
+                    int precioImplicito = rs.getInt("precioImplicito");
+                    int precioExplicito = rs.getInt("precioExplicito");
+                    int divipola = rs.getInt("divipola");
+
+                    SellPoint sellPoint = new SellPoint(puntoVentaId, puntoVentaNombre, puntoVentaDireccion, 
+                                                        precioImplicito, precioExplicito, divipola);
+                    sellPoints.add(sellPoint);  
+                }
+            }
+
+            return Response.ok(sellPoints).build(); 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"message\":\"Error en la consulta SQL: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+
+
+    @GET
+    @Path("get_ten")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get_ten(@QueryParam("offset") int offset) {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
+        ArrayList<Product> products = new ArrayList<>();
+
+        String sql = "SELECT * FROM productos LIMIT 10 OFFSET ?";
+
+        try (Connection c = MySqlConnection.getConnection()) {
+
+            try(PreparedStatement stmt = c.prepareStatement(sql)){
+                stmt.setInt(1, offset);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()) {
+                        int id = rs.getInt("id");
+                        String nameDane =  rs.getString("nombreDane");
+                        String barCode = rs.getString("codigoBarras");
+                        String name = rs.getString("nombre");
+                        String unity = rs.getString("unidad");
+                        String brand =  rs.getString("marca");
+                        String company = rs.getString("empresa");
+                        int idCategory = rs.getInt("idCategoria");
+                        Product product = new Product(String.valueOf(id), nameDane, barCode, name, unity, brand, company, idCategory);
+                        products.add(product);
+                    }
+                }
+    
+                return Response.ok(products).build();
+            
+            }
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"message\":\"Error en la consulta SQL: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+
+    @GET
+    @Path("get_municipios")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get_municipios() {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL Driver not found", e);
+        }
+
+        List<Municipio> municipios = new ArrayList<>();
+        try (Connection c = MySqlConnection.getConnection()) {
+            
+            String sql = "SELECT * FROM municipios;";
+            
+            try (PreparedStatement statement = c.prepareStatement(sql)) {
+                try (ResultSet rs = statement.executeQuery()) {
+                    while (rs.next()) {
+                        municipios.add(new Municipio(rs.getInt("id"), rs.getString("nombre")));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error on query SQL: " + e.getMessage(), e);
+        }
+
+        return Response.ok(municipios).build();
+    }
+
+}
+package co.edu.uptc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import co.edu.uptc.entities.Consumer;
+import co.edu.uptc.entities.Provider;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.mindrot.jbcrypt.BCrypt;
+
+@Path("register")
+public class Register {
+
+    @POST
+    @Path("reg_consumer")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response reg_consumer(Consumer consumer) {
+        String sql = "INSERT INTO consumidores (id, nombre, edad, municipio, estrato, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection c = MySqlConnection.getConnection();
+             PreparedStatement stmt = c.prepareStatement(sql)) {
+
+            // Hash de la contraseña
+            String hashedPassword = BCrypt.hashpw(consumer.getPassword(), BCrypt.gensalt());
+
+            stmt.setInt(1, consumer.getId());
+            stmt.setString(2, consumer.getName());
+            stmt.setInt(3, consumer.getAge());
+            stmt.setString(4, consumer.getMunicipio());
+            stmt.setInt(5, consumer.getEstrato());
+            stmt.setString(6, consumer.getEmail());
+            stmt.setString(7, hashedPassword);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                return Response.status(Response.Status.CREATED)
+                        .entity("{\"message\":\"Consumidor registrado exitosamente\"}")
+                        .build();
+            } else {
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("{\"message\":\"No se pudo registrar el consumidor\"}")
+                        .build();
+            }
+
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"message\":\"Error en la consulta SQL: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+
+    @POST
+    @Path("reg_provider")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response reg_provider(Provider provider) {
+        String sql = "INSERT INTO proveedores (id, nombre, telefono, email, password, direccion) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (Connection c = MySqlConnection.getConnection();
+             PreparedStatement stmt = c.prepareStatement(sql)) {
+
+            // Hash de la contraseña
+            String hashedPassword = BCrypt.hashpw(provider.getPassword(), BCrypt.gensalt());
+
+            stmt.setInt(1, provider.getId());
+            stmt.setString(2, provider.getName());
+            stmt.setString(3, provider.getPhone());
+            stmt.setString(4, provider.getEmail());
+            stmt.setString(5, hashedPassword);
+            stmt.setString(6, provider.getAddress());
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                return Response.status(Response.Status.CREATED)
+                        .entity("{\"message\":\"Proveedor registrado exitosamente\"}")
+                        .build();
+            } else {
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("{\"message\":\"No se pudo registrar el proveedor\"}")
+                        .build();
+            }
+
+        } catch (SQLException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"message\":\"Error en la consulta SQL: " + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
+
+    
+}
+el customer.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CONSUMER VIEW</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/consumer.css">
+    <link rel="stylesheet" href="../styles/content_products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></head>
+
+
+<body>
+
+    <header>
+        <a href="#" class="logo">CONSULTORIO CONSUMIDORES</a>
+        <nav>
+            <ul>
+                <li><button onclick="change_view('products')">Productos</button></li>
+                <li><button onclick="change_view('favorites')">Favoritos</button></li>
+                <li><button onclick="change_view('providers')">Proveedores</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container_content_products" >
+        <h2 style="color:#003985">Buscar Productos:</h2>
+        <div class="container_search mt-5">
+            <input type="search" class="form-control" id="search_input" placeholder="Buscar Producto...">
+            <button id="search_button" onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="filter_button" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
+        </div>
+
+        
+
+        <div class="container_table">
+            <table class="table mt-5" id="products_table">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Nombre DANE</th>
+                        <th style="width: 100px;">Código de Barras</th>
+                        <th style="width: 200px;">Nombre</th>
+                        <th style="width: 200px;">Unidad</th>
+                        <th style="width: 50px;">Marca</th>
+                        <th style="width: 200px;">Empresa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div id="pagination" class="mt-5">
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_backward" onclick="pagination_go_backward()"><i style="color:white" class="fa-solid fa-backward"></i></button>
+                <span id="number_page">Página 1</span>
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_forward" onclick="pagination_go_forward()"><i style="color:white" class="fa-solid fa-forward"></i></button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container_content_favs">
+        <h2 style="color:#003985">Mis Productos:</h2>
+        <div class="container_table">
+            <table class="table mt-5" id="favorites_table">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Nombre DANE</th>
+                        <th style="width: 100px;">Código de Barras</th>
+                        <th style="width: 200px;">Nombre</th>
+                        <th style="width: 50px;">Marca</th>
+                        <th style="width: 200px;">Empresa</th>
+                        <th style="width: 100px;">Precio Explicito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div id="pagination" class="mt-5">
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_backward" onclick="pagination_go_backward()"><i style="color:white" class="fa-solid fa-backward"></i></button>
+                <span id="number_page">Página 1</span>
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_forward" onclick="pagination_go_forward()"><i style="color:white" class="fa-solid fa-forward"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container_content_providers">
+        <h2 style="color:#003985">Buscar Proveedores:</h2>
+        <div class="container_search mt-5">
+            <input type="search" class="form-control" id="search_input" placeholder="Buscar Proveedor...">
+            <button id="search_button" onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="filter_button" data-bs-toggle="modal" data-bs-target="#filterProviderModal"><i style="color:white;" class="fa-solid fa-filter"></i></button>
+        </div>
+        <div class="container_table">
+            <table class="table mt-5" id="providers_table">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Nombre</th>
+                        <th style="width: 100px;">Departamento</th>
+                        <th style="width: 200px;">Municipio</th>
+                        <th style="width: 50px;">email</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    
+                </tbody>
+            </table>
+            <div id="pagination" class="mt-5">
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_backward" onclick="pagination_go_backward()"><i style="color:white" class="fa-solid fa-backward"></i></button>
+                <span id="number_page">Página 1</span>
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_forward" onclick="pagination_go_forward()"><i style="color:white" class="fa-solid fa-forward"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="filterModalLabel">Filtros</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-2">
+
+                        <div class="col-md-6 mb-2">
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="filter_by_attribute" aria-label="Floating label select example">
+                                    <option selected>Nombre</option>
+                                    <option value="namedane">Nombre DANE</option>
+                                    <option value="brand">Marca</option>
+                                    <option value="company">Empresa</option>
+                                    <option value="barcode">Código de Barras</option>
+                                    <option value="divipola">Divipola</option>
+                                    <option value="mnicipio">Municipio</option>
+                                </select>
+                                <label for="filter_by_attribute">Buscar Por Atributo</label>
+                            </div>
+
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="filter_by_category" aria-label="Floating label select example">
+                                    <option selected>Consumo</option>
+                                    <option value="food">Comida</option>
+                                    <option value="drink">Bebidas</option>
+                                    <option value="medication">Medicacion</option>
+                                </select>
+                                <label for="filter_by_category">Buscar Por Categoria</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <form class="form-floating mb-2">
+                                <input type="number" class="form-control" id="filter_price_min">
+                                <label for="filter_price_min">Precio mínimo</label>
+                            </form>
+
+                            <form class="form-floating">
+                                <input type="number" class="form-control" id="filter_price_max">
+                                <label for="filter_price_max">Precio máximo</label>
+                            </form>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="applyFilters">Aplicar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Información del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-product-name">Nombre del Producto: </p>
+                    <p id="modal-product-code">Código de Barras: </p>
+                    <p id="modal-product-brand">Marca: </p>
+                    <p id="modal-product-company">Empresa: </p>
+                    <div class="form-floating mt-3">
+                        <select class="form-select" id="select_municipios"></select>
+                        <label for="select_municipios">Municipio: </label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <select class="form-select" id="select_sell_point"></select>
+                        <label for="select_sell_point">Punto de Venta: </label>
+                    </div>
+                    <p id="modal-product-implicit">Precio Implícito: </p>
+                    <p id="modal-product-explicit">Precio Explícito: </p>
+                    <p id="modal-product-divipola">Divipola: </p>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/consumer.js"></script>
+    <script src="../scripts/products.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+login.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCTS LOGIN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+
+    <div class="container_login mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card shadow-lg" id="loginCard">
+                    <div class="card-header text-center bg-primary text-white">
+                        <h4 class="mb-3 mt-3">Bienvenido al Consultorio</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="loginForm" >
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="consumer_rol" checked>
+                                <label class="form-check-label" for="consumer_rol">Consumidor</label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="provider_rol">
+                                <label class="form-check-label" for="provider_rol">Proveedor</label>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <button type="button" class="btn btn-primary w-100" onclick="login()">Iniciar Sesión</button>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <a href="#" class="text-muted">¿Olvidaste tu contraseña?</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-0">¿No tienes cuenta? <button onclick="change_view('register')">Regístrate aquí</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container_register mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card shadow-lg" id="regCard">
+                    <div class="card-header text-center bg-primary text-white">
+                        <h4 class="mb-3 mt-3">Registra tu cuenta</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="reg_rol" aria-label="Selecciona un rol">
+                                <option value="none" selected>Ninguno</option>
+                                <option value="consumer">Consumidor</option>
+                                <option value="provider">Proveedor</option>
+                            </select>
+                            <label for="reg_rol">Elegir rol</label>
+                        </div>
+                        <div class="reg_form_by_rol"></div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-0">¿Ya tienes cuenta? <button onclick="change_view('login')">Iniciar Sesión</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="alertBox" class="alert-box">
+        <span id="alertMessage">Este es un mensaje de alerta.</span>
+        <button class="btn-close" onclick="closeAlert()" aria-label="Close"></button>
+    </div>
+    
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="../scripts/login.js"></script>
+    <script src="../scripts/products.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
+
+provider.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PROVIDER VIEW</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/provider.css">
+    <link rel="stylesheet" href="../styles/content_products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></head>
+
+
+<body>
+
+    <header>
+        <a href="#" class="logo">CONSULTORIO PROVEEDORES</a>
+        <nav>
+            <ul>
+                <li><button onclick="change_view('products')">Productos</button></li>
+                <li><button onclick="change_view('distribution')">Distribucion</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container_content_products" >
+        <h2 style="color:#003985">Buscar Productos:</h2>
+        <div class="container_search mt-5">
+            <input type="search" class="form-control" id="search_input" placeholder="Buscar Producto...">
+            <button id="search_button" onclick="find()"><i style="color: white" class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="filter_button" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
+        </div>
+
+        
+
+        <div class="container_table">
+            <table class="table mt-5" id="products_table">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Nombre DANE</th>
+                        <th style="width: 100px;">Código de Barras</th>
+                        <th style="width: 200px;">Nombre</th>
+                        <th style="width: 200px;">Unidad</th>
+                        <th style="width: 50px;">Marca</th>
+                        <th style="width: 200px;">Empresa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>namedane1</th>
+                        <th>barcode1</th>
+                        <th>name1</th>
+                        <th>name1</th>
+                        <th>Hola</th>
+                        <th>321321</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="pagination" class="mt-5">
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_backward" onclick="pagination_go_backward()"><i style="color:white" class="fa-solid fa-backward"></i></button>
+                <span id="number_page">Página 1</span>
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_forward" onclick="pagination_go_forward()"><i style="color:white" class="fa-solid fa-forward"></i></button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container_content_distr">
+        <h2 style="color:#003985">Distribuir Productos:</h2>
+        <div class="container_table">
+            <table class="table mt-5" id="distr_products">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Nombre DANE</th>
+                        <th style="width: 100px;">Código de Barras</th>
+                        <th style="width: 200px;">Nombre</th>
+                        <th style="width: 200px;">Unidad</th>
+                        <th style="width: 50px;">Marca</th>
+                        <th style="width: 200px;">Empresa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>namedane1</th>
+                        <th>barcode1</th>
+                        <th>name1</th>
+                        <th>name1</th>
+                        <th>Hola</th>
+                        <th>321321</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="pagination" class="mt-5">
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_backward" onclick="pagination_go_backward()"><i style="color:white" class="fa-solid fa-backward"></i></button>
+                <span id="number_page">Página 1</span>
+                <button style="background-color: #525252;border-color: #525252;border-radius: 10px;" id="pagination_forward" onclick="pagination_go_forward()"><i style="color:white" class="fa-solid fa-forward"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="filterModalLabel">Filtros</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-2">
+
+                        <div class="col-md-6 mb-2">
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="filter_by_attribute" aria-label="Floating label select example">
+                                    <option selected>nombre</option>
+                                    <option value="namedane">nombre DANE</option>
+                                    <option value="brand">marca</option>
+                                    <option value="company">empresa</option>
+                                    <option value="barcode">codigo Barras</option>
+                                </select>
+                                <label for="filter_by_attribute">Buscar Por Atributo</label>
+                            </div>
+
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="filter_by_category" aria-label="Floating label select example">
+                                    <option selected>ninguna</option>
+                                    <option value="consume">Alimentos y Bebidas</option>
+                                    <option value="food">Medicamentos</option>
+                                    <option value="drink">Artículos de Higiene y Cuidado Personal</option>
+                                    <option value="medication">Equipos y Materiales Médicos</option>
+                                </select>
+                                <label for="filter_by_category">Buscar Por Categoria</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <form class="form-floating mb-2">
+                                <input type="number" class="form-control" id="filter_price_min">
+                                <label for="filter_price_min">Precio mínimo</label>
+                            </form>
+
+                            <form class="form-floating">
+                                <input type="number" class="form-control" id="filter_price_max">
+                                <label for="filter_price_max">Precio máximo</label>
+                            </form>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="apply_filters()">Aplicar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Información del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-product-name">Nombre del Producto: </p>
+                    <p id="modal-product-code">Código de Barras: </p>
+                    <p id="modal-product-brand">Marca: </p>
+                    <p id="modal-product-company">Empresa: </p>
+                    <div class="form-floating mt-3">
+                        <select class="form-select" id="select_municipios"></select>
+                        <label for="select_municipios">Municipio: </label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <select class="form-select" id="select_sell_point"></select>
+                        <label for="select_sell_point">Punto de Venta: </label>
+                    </div>
+                    <p id="modal-product-implicit">Precio Implícito: </p>
+                    <p id="modal-product-explicit">Precio Explícito: </p>
+                    <p id="modal-product-divipola">Divipola: </p>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/provider.js"></script>
+    <script src="../scripts/products.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+consumer.js
+const container_content_products = document.querySelector(".container_content_products")
+const container_content_favs = document.querySelector(".container_content_favs")
+const container_content_providers = document.querySelector(".container_content_providers")
+
+const modalFooter = document.querySelector('#infoModal .modal-dialog .modal-content .modal-footer');
+
+
+
+
+async function get_sell_point(id_municipio, id_producto) {
+    try {
+        const url = `../webapi/products/get_sell_point_consumer?id_municipio=${id_municipio}&id_producto=${id_producto}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const sellPoints = await response.json(); 
+        update_sell_point_select(sellPoints);
+
+    } catch (error) {
+        console.error('Error al obtener los puntos de venta:', error);
+    }
+}
+
+function update_sell_point_select(sellPoints) {
+    const selectSellPoint = document.getElementById('select_sell_point');
+    selectSellPoint.innerHTML = ''; 
+
+    sellPoints.forEach(sellPoint => {
+        const option = document.createElement('option');
+        option.value = sellPoint.id; 
+        option.textContent = `${sellPoint.name} - ${sellPoint.address}`;
+        selectSellPoint.appendChild(option);
+
+        selectSellPoint.addEventListener('change', function() {
+            document.getElementById('modal-product-implicit').innerText = 'Precio Implícito: ' + sellPoint.priceImplicit;
+            document.getElementById('modal-product-explicit').innerText = 'Precio Explícito: ' + sellPoint.priceExplicit;
+            document.getElementById('modal-product-divipola').innerText = 'Divipola: ' + sellPoint.divipola;
+        })
+    });
+    
+}
+
+document.querySelectorAll('#favorites_table tbody tr').forEach(row => {
+    row.addEventListener('click', function() {
+        
+        const productName = this.cells[2].innerText; 
+        const productCode = this.cells[1].innerText; 
+        const productBrand = this.cells[3].innerText; 
+        const productCompany = this.cells[4].innerText;
+
+        document.getElementById('modal-product-name').innerText = 'Nombre del Producto: ' + productName;
+        document.getElementById('modal-product-code').innerText = 'Código de Barras: ' + productCode;
+        document.getElementById('modal-product-brand').innerText = 'Marca: ' + productBrand;
+        document.getElementById('modal-product-company').innerText = 'Empresa: ' + productCompany;
+        const typeBtn = document.createElement('button');
+        typeBtn.onclick = removeFromFavorites()
+        set_buttons_modal_info('fav', typeBtn)
+
+        const myModal = new bootstrap.Modal(document.getElementById('infoModal'));
+        myModal.show();
+    });
+});
+
+
+function change_view(name){
+    container_content_products.style.display = 'none';
+    container_content_favs.style.display = 'none';
+    container_content_providers.style.display = 'none';
+
+    if (name === 'products') 
+        container_content_products.style.display = 'block';
+    else if (name === 'favorites') 
+        container_content_favs.style.display = 'block';
+    else if(name === 'providers')
+        container_content_providers.style.display = 'block';
+    
+}
+
+
+function set_buttons_modal_info(type, typeBtn){
+    modalFooter.innerHTML = ''
+    const closeBtn = document.createElement('button');
+    closeBtn.setAttribute('type', 'button'); 
+    closeBtn.classList.add('btn', 'btn-secondary'); 
+    closeBtn.setAttribute('data-bs-dismiss', 'modal'); 
+    closeBtn.innerText = 'Cerrar';  
+
+    typeBtn.classList.add('btn', 'btn-primary');
+    if(type === 'prod'){
+        typeBtn.innerText = 'Agregar a Favoritos'
+
+    }else if( type === 'fav'){
+        typeBtn.innerText = 'Remover de Favoritos'
+
+        typeBtn.style = 'background-color:red;border-color:red;'
+    }
+    modalFooter.appendChild(typeBtn)
+    modalFooter.appendChild(closeBtn)
+}
+
+async function addToFavorites(idProduct){
+    try {
+        const url = `../webapi/products/get_ten_first?offset=${pagination_offset}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        products = await response.json();
+        console.log(products);
+        showProducts(products);
+    } catch (error) {
+        console.error('Error fetching products:', error);
+    }
+}
+
+async function removeFromFavorites(){
+
+}
+
+login.js
+
+
+
+
+const container_login = document.querySelector(".container_login")
+const container_register = document.querySelector(".container_register")
+const regFormBy = document.querySelector('.reg_form_by_rol');
+const regRol = document.getElementById('reg_rol');
+
+let id_municipio = 0;
+var selected_role = "";
+
+
+regRol.addEventListener("change", function() {
+
+    regFormBy.innerHTML = '';
+
+    selected_role = this.value;
+    
+    
+
+
+    if (selected_role === 'consumer') {
+        regFormBy.innerHTML = `
+            <form id="regConsumer" class="row reg_inner g-3 needs-validation" novalidate>
+                <div class="form-floating mt-3 col-md-4">
+                    <input type="number" class="form-control" id="reg_id" placeholder="Identificacion" required>
+                    <label for="reg_id">Identificacion</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Número de identificación personal no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="reg_name" placeholder="Nombre Completo" required>
+                    <label for="reg_name">Nombre Completo</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Nombre no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3 col-md-4">
+                    <input type="number" class="form-control" id="reg_age" placeholder="Edad" required>
+                    <label for="reg_age">Edad</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Edad no válida! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <select class="form-select" id="select_municipios"></select>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Selecciona un Municipio<span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3 col-md-4">
+                    <input type="number" class="form-control" id="reg_status" placeholder="Estrato" required>
+                    <label for="reg_status">Estrato</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Estrato no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="email" class="form-control" id="reg_email" placeholder="Email" required>
+                    <label for="reg_email">Email</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Email no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="password" class="form-control" id="reg_password" placeholder="Contraseña" required>
+                    <label for="reg_password">Contraseña</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Contraseña no válida! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="password" class="form-control" id="reg_password_confirm" placeholder="Confirmar Contraseña" required>
+                    <label for="reg_password_confirm">Confirmar Contraseña</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Las contraseñas no coinciden!<span class="reason-feedback"></span></div>
+                </div>
+                <button type="submit" id="submitButton" class="btn btn-primary mt-3">Registrar</button>
+            </form>
+        `;
+        get_municipios()
+    } else if (selected_role === 'provider') {
+        regFormBy.innerHTML = `
+            <form id="regProvider" class="reg_inner row g-3 needs-validation" novalidate>
+                <div class="form-floating mt-3 col-md-4">
+                    <input type="number" class="form-control" id="reg_id" placeholder="Identificacion" required>
+                    <label for="reg_id">Identificacion</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Número de identificación personal no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="reg_name" placeholder="Nombre Completo" required>
+                    <label for="reg_name">Nombre Completo</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Nombre no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3 col-md-4">
+                    <input type="number" class="form-control" id="reg_phone" placeholder="Telefono" required>
+                    <label for="reg_phone">Telefono</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Número de teléfono personal no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="email" class="form-control" id="reg_email" placeholder="Email" required>
+                    <label for="reg_email">Email</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Email personal no válido! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="password" class="form-control" id="reg_password" placeholder="Contraseña" required>
+                    <label for="reg_password">Contraseña</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Contraseña no válida! - <span class="reason-feedback"></span></div>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="password" class="form-control" id="reg_password_confirm" placeholder="Confirmar Contraseña" required>
+                    <label for="reg_password_confirm">Confirmar Contraseña</label>
+                    <div class="valid-feedback">Okey!</div>
+                    <div class="invalid-feedback">Las contraseñas no coinciden<span class="reason-feedback"></span></div>
+                </div>
+                <button type="submit" id="submitButton" class="btn btn-primary mt-3">Registrar</button>
+            </form>
+        `;
+    }else{return}
+});
+
+
+regFormBy.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    if (submit_validations()) {
+        let data = {}
+        if(selected_role === "consumer"){
+            data = {
+                id: regFormBy.querySelector('#reg_id').value,
+                name: regFormBy.querySelector('#reg_name').value,
+                email: regFormBy.querySelector('#reg_email').value,
+                password: regFormBy.querySelector('#reg_password').value,
+                municipio_id: id_municipio,  
+                age: regFormBy.querySelector('#reg_age').value,                   
+                status: regFormBy.querySelector('#reg_status').value 
+                
+            };
+        }else if(selected_role === "provider"){
+            data = {
+                id: regFormBy.querySelector('#reg_id').value,
+                name: regFormBy.querySelector('#reg_name').value,
+                phone: regFormBy.querySelector('#reg_phone').value,
+                email: regFormBy.querySelector('#reg_email').value,
+                password: regFormBy.querySelector('#reg_password').value
+                
+            };
+        }else{
+            return;
+        }
+        
+
+        
+        try {
+            const response = await fetch('../webapi/register/reg_' + selected_role, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                const message = await response.json();
+                alert(message);
+            } else {
+                alert("Registration failed.");
+            }
+
+        } catch (error) {
+            console.error('Error during registration:', error);
+            showAlert('Hubo un error al registrar el usuario. Intenta nuevamente.');
+        }
+    } else {
+        console.log('Form validation failed');
+    }
+});
+
+
+async function submit_validations(){
+    
+    function showFeedback(input, isValid, errorMessage = "") {
+        const formGroup = input.closest(".form-floating");
+
+        const valid_feedback = formGroup.querySelector(".valid-feedback");
+        const invalid_feedback = formGroup.querySelector(".invalid-feedback");
+        const reason_feedback = invalid_feedback.querySelector(".reason-feedback");
+
+        valid_feedback.style.display = "none";
+        invalid_feedback.style.display = "none";
+        reason_feedback.textContent = "";  
+
+        if (isValid) {
+            valid_feedback.style.display = "block";
+        } else {
+            invalid_feedback.style.display = "block";
+            reason_feedback.textContent = errorMessage;
+        }
+    }
+
+    function checkFormValidity() {
+        let form = regFormBy.querySelector('.reg_inner')
+        let isValid = true;
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        const inputs = form.querySelectorAll("input");
+
+        
+        
+        inputs.forEach(input => {
+
+            if(input.type === "text"){
+                if (!input.value.match(/^[A-Za-z]+$/)) {
+                    showFeedback(input, false, "Solo letras permitidas.");
+                    isValid = false;
+                } else if (input.value.trim() === "") {
+                    showFeedback(input, false, "Este campo no puede estar vacío.");
+                    isValid = false;
+                } else {
+                    showFeedback(input, true);
+                }
+            }else if(input.type === "number"){
+                if(input.value.match()){
+                    if (!input.value.match(/^\d+$/)) {
+                        showFeedback(input, false, "Solo números permitidos.");
+                        isValid = false;
+                    } else if (input.value.trim() === "") {
+                        showFeedback(input, false, "Este campo no puede estar vacío.");
+                        isValid = false;
+                    } else {
+                        showFeedback(input, true);
+                    }
+                }
+            }else if(input.type === "email"){
+                if(input.value.match()){
+                    if (!input.value.match(emailPattern)) {
+                        showFeedback(input, false, "Por favor ingrese un correo electrónico válido.");
+                        isValid = false;
+                    } else {
+                        showFeedback(input, true);
+                    }
+                }
+            }else if (input.id === "reg_password") {
+                const passwordValue = input.value;
+                let passwordMessage = "";
+        
+                if (passwordValue.length < 8) {
+                    passwordMessage += "La contraseña debe tener al menos 8 caracteres. ";
+                    isValid = false;
+                }
+                if (!/[A-Z]/.test(passwordValue)) {
+                    passwordMessage += "La contraseña debe incluir al menos una letra mayúscula. ";
+                    isValid = false;
+                }
+                if (!/\d/.test(passwordValue)) {
+                    passwordMessage += "La contraseña debe incluir al menos un número. ";
+                    isValid = false;
+                }
+                if (!/[@$!%*?&]/.test(passwordValue)) {
+                    passwordMessage += "La contraseña debe incluir al menos un carácter especial (@, $, !, %, *, ?, &). ";
+                    isValid = false;
+                }
+        
+                if (passwordMessage) {
+                    showFeedback(input, false, passwordMessage);
+                } else {
+                    showFeedback(input, true);
+                    const passwordConfirm = form.querySelector("#reg_password_confirm");
+                    if (passwordValue !== passwordConfirm.value) {
+                        showFeedback(passwordConfirm, false);
+                        isValid = false;
+                    } else {
+                        showFeedback(passwordConfirm, true);
+                    }
+                }
+        
+                
+            }
+
+        });
+
+        if(selected_role === "consumer"){
+            const municipio_select = document.getElementById("select_municipios")
+            const group = municipio_select.closest(".form-floating");
+            const valid_feedback = group.querySelector(".valid-feedback")
+            const invalid_feedback = group.querySelector(".invalid-feedback")
+
+            valid_feedback.style.display = "none";
+            invalid_feedback.style.display = "none";
+
+            if (municipio_select.value === "" || municipio_select.selectedIndex === 0) {
+                invalid_feedback.style.display = "block"
+                isValid = false;
+            } else {
+                valid_feedback.style.display = "block";
+                const selectedMunicipio = municipios.find(municipio => municipio.id == municipio_select.value);
+                if (selectedMunicipio) {
+                    id_municipio = selectedMunicipio.id;
+                }
+            }
+        }
+
+        return isValid;
+    }
+
+    if(checkFormValidity()){
+        if(await find_user_reg(regFormBy.querySelector("#reg_id").value, selected_role) ){
+            showFeedback(regFormBy.querySelector("#reg_id"), false, "Usuario ya identificado")
+            return false
+        }
+        return true
+    }
+
+    return false;
+}
+
+function change_view(name){
+
+    regRol.value = 'none';
+    regFormBy.innerHTML = '';
+    container_login.style.display = 'none'
+    container_register.style.display = 'none'
+
+    if(name === 'login')
+        container_login.style.display = 'block'
+    else if(name === 'register')
+        container_register.style.display = 'block'
+        
+}
+
+async function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const consumerRoleChecked = document.getElementById('consumer_rol').checked;
+    const providerRoleChecked = document.getElementById('provider_rol').checked;
+
+    let role = null;
+    if (consumerRoleChecked) {
+        role = 'consumer';
+    } else if (providerRoleChecked) {
+        role = 'provider';
+    }
+
+    if (!role) {
+        alert('Por favor, selecciona un rol (Consumidor o Proveedor)');
+        return;
+    }
+
+    try {
+        const userResponse = await find_user(email, password, role);
+
+        if (userResponse) {
+            
+
+            if (role === 'consumer') {
+                window.location.href = '../index/consumer.html'; 
+            } else if (role === 'provider') {
+                window.location.href = '../index/provider.html';  
+            }
+        } else {
+            alert('Credenciales incorrectas o usuario no encontrado');
+        }
+    } catch (error) {
+        console.error("Error en el login:", error);
+        alert('Hubo un error al intentar iniciar sesión. Por favor, inténtalo nuevamente.');
+    }
+}
+
+
+async function find_user(email, password, role) {
+    try {
+        const url = `../webapi/login/find_user?email=${email}&password=${password}&role=${role}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const userInfo = await response.json();
+
+        
+        if (userInfo) {
+            user = {
+                id: userResponse.id,  
+                role: role,
+                email: email,
+                password: password
+            };
+            return true;  
+        }
+    } catch (error) {
+        console.error('Error al buscar el usuario:', error);
+    }
+
+    return false;  
+}
+
+
+async function find_user_reg(id, role) {
+    try {
+        const url = `../webapi/register/find_user?id=${id}&role=${role}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const consumer_info = await response.json(); 
+        if (consumer_info) {
+            return true;  
+        }
+    } catch (error) {
+        console.error('Error al buscar el usuario:', error);
+    }
+    return false;  
+}
+
+
+function showAlert(message) {
+    const alertBox = document.getElementById("alertBox");
+    const alertMessage = document.getElementById("alertMessage");
+    alertMessage.textContent = message;
+
+    alertBox.classList.add("show");  
+    alertBox.style.display = "block"; 
+    setTimeout(function () {
+        closeAlert();
+    }, 3000); 
+}
+
+function closeAlert() {
+    const alertBox = document.getElementById("alertBox");
+    alertBox.classList.remove("show");
+    setTimeout(function () {
+        alertBox.style.display = "none"; 
+    }, 500);
+}
+
+
+products.js
+
+var products = [];
+var pagination_offset = 0;
+var number_page = document.getElementById("number_page")
+let filters = {
+    attribute : "nombre",
+    category : "ninguna",
+    priceMin : 0,
+    priceMax : 0
+}
+let municipios = [];
+
+let user = {
+    id : 0,
+    role : "",
+    email : "",
+    password : ""
+}
+window.addEventListener("scroll", function(){
+    var header = document.querySelector("header");
+    if(header)
+        header.classList.toggle("down", window.scrollY > 0);
+})
+
+const pagination = document.querySelector('.pagination')
+
+
+
+async function getProducts() {
+    try {
+        const url = `../webapi/products/get_ten?offset=${pagination_offset}`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        products = await response.json();
+        console.log(products); 
+        showProducts(products); 
+    } catch (error) {
+        console.error('Error fetching products:', error);
+    }
+}
+
+
+
+function showProducts(products){
+    const selectSellPoint = document.getElementById('select_sell_point');
+    selectSellPoint.value = '';
+    const selectMunicipios = document.getElementById("select_municipios");
+    selectMunicipios.value = ''; 
+    const tbody = document.getElementById('products_table').querySelector('tbody');
+    tbody.innerHTML = ''
+    products.forEach(p => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${p.nameDane}</td>
+            <td>${p.barcode}</td>
+            <td>${p.name}</td>
+            <td>${p.unity}</td>
+            <td>${p.brand}</td>
+            <td>${p.company}</td>
+        `;
+        tbody.appendChild(row);
+
+        row.addEventListener('click', function() {
+            get_municipios();
+            const productName = this.cells[2].innerText; 
+            const productCode = this.cells[1].innerText; 
+            const productBrand = this.cells[3].innerText; 
+            const productCompany = this.cells[4].innerText;
+            
+            const selectMunicipios = document.getElementById("select_municipios");
+            selectMunicipios.addEventListener('change', function() {
+                const id_municipio = this.value;
+                const id_product = p.id;
+                console.log(`Municipio ID: ${id_municipio} --- Product ID: ${id_product}`)
+                get_sell_point(id_municipio, id_product)
+    
+            })
+            
+    
+            document.getElementById('modal-product-name').innerText = 'Nombre del Producto: ' + productName;
+            document.getElementById('modal-product-code').innerText = 'Código de Barras: ' + productCode;
+            document.getElementById('modal-product-brand').innerText = 'Marca: ' + productBrand;
+            document.getElementById('modal-product-company').innerText = 'Empresa: ' + productCompany;
+            const typeBtn = document.createElement('button');
+            typeBtn.onclick = addToFavorites()
+            set_buttons_modal_info('prod', typeBtn)
+            const myModal = new bootstrap.Modal(document.getElementById('infoModal'));
+            myModal.show();
+        });
+    });
+    number_page.innerHTML = 'Página ' + ((pagination_offset / 10) + 1)
+}
+
+function pagination_go_backward(){
+    if(pagination_offset != 1){
+        pagination_offset -= 10
+        getProducts()
+    }
+    
+}
+
+function pagination_go_forward(){
+    pagination_offset += 10;
+    getProducts()
+}
+
+async function get_municipios(){
+    try {
+        const url = `../webapi/products/get_municipios`;
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        municipios = await response.json(); 
+        municipios_to_select();
+        municipios_select2();
+
+    } catch (error) {
+        console.error('Error al buscar el usuario:', error);
+    }
+}
+
+function municipios_to_select() {
+    const selectMunicipios = document.getElementById("select_municipios");
+
+    selectMunicipios.innerHTML = '<option selected disabled value="">Municipios...</option>';
+
+    municipios.forEach(municipio => {
+        const option = document.createElement("option");
+        option.value = municipio.id; 
+        option.textContent = municipio.name; 
+        selectMunicipios.appendChild(option);
+    });
+}
+
+function municipios_select2() {
+    $('#select_municipios').select2({
+        placeholder: "Seleccione un municipio",
+        allowClear: true
+    });
+}
+
+
+getProducts()
+
+provider.js 
+const container_content_products = document.querySelector(".container_content_products")
+const container_content_distr = document.querySelector(".container_content_distr")
+
+const modalFooter = document.querySelector('#infoModal .modal-dialog .modal-content .modal-footer');
+
+
+document.querySelectorAll('#products_table tbody tr').forEach(row => {
+    row.addEventListener('click', function() {
+        
+        const productName = this.cells[2].innerText; 
+        const productCode = this.cells[1].innerText; 
+        const productBrand = this.cells[3].innerText; 
+        const productCompany = this.cells[4].innerText; 
+
+        document.getElementById('modal-product-name').innerText = 'Nombre del Producto: ' + productName;
+        document.getElementById('modal-product-code').innerText = 'Código de Barras: ' + productCode;
+        document.getElementById('modal-product-brand').innerText = 'Marca: ' + productBrand;
+        document.getElementById('modal-product-company').innerText = 'Empresa: ' + productCompany;
+        set_buttons_modal_info('prod')
+        const myModal = new bootstrap.Modal(document.getElementById('infoModal'));
+        myModal.show();
+    });
+});
+
+document.querySelectorAll('#distr_products tbody tr').forEach(row => {
+    row.addEventListener('click', function() {
+        
+        const productName = this.cells[2].innerText; 
+        const productCode = this.cells[1].innerText; 
+        const productBrand = this.cells[3].innerText; 
+        const productCompany = this.cells[4].innerText;
+
+        document.getElementById('modal-product-name').innerText = 'Nombre del Producto: ' + productName;
+        document.getElementById('modal-product-code').innerText = 'Código de Barras: ' + productCode;
+        document.getElementById('modal-product-brand').innerText = 'Marca: ' + productBrand;
+        document.getElementById('modal-product-company').innerText = 'Empresa: ' + productCompany;
+
+        set_buttons_modal_info('distr')
+
+        const myModal = new bootstrap.Modal(document.getElementById('infoModal'));
+        myModal.show();
+    });
+});
+
+function apply_filters(){
+
+}
+
+
+function change_view(name){
+    container_content_products.style.display = 'none';
+    container_content_distr.style.display = 'none';
+
+    if (name === 'products') {
+        container_content_products.style.display = 'block';
+    } else if (name === 'distribution') {
+        container_content_distr.style.display = 'block';
+    }
+}
+
+function set_buttons_modal_info(type){
+    modalFooter.innerHTML = ''
+    const closeBtn = document.createElement('button');
+    closeBtn.setAttribute('type', 'button'); 
+    closeBtn.classList.add('btn', 'btn-secondary'); 
+    closeBtn.setAttribute('data-bs-dismiss', 'modal'); 
+    closeBtn.innerText = 'Cerrar';  
+    const typeBtn = document.createElement('button');
+    typeBtn.classList.add('btn', 'btn-primary');  
+     
+        
+    if(type === 'prod'){
+        typeBtn.innerText = 'Distribuir'
+    }else if( type === 'distr'){
+        typeBtn.innerText = 'Remover'
+        typeBtn.style = 'background-color:red;border-color'
+    }
+    modalFooter.appendChild(typeBtn)
+    modalFooter.appendChild(closeBtn)
+}

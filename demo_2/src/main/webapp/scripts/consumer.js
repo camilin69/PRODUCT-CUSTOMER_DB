@@ -69,19 +69,21 @@ document.querySelectorAll('#favorites_table tbody tr').forEach(row => {
 });
 
 
-function change_view(name){
+function change_view(name) {
     container_content_products.style.display = 'none';
     container_content_favs.style.display = 'none';
     container_content_providers.style.display = 'none';
 
-    if (name === 'products') 
+    if (name === 'products') {
         container_content_products.style.display = 'block';
-    else if (name === 'favorites') 
+    } else if (name === 'favorites') {
         container_content_favs.style.display = 'block';
-    else if(name === 'providers')
+    } else if (name === 'providers') {
         container_content_providers.style.display = 'block';
-    
+        get_proveedores(); // Llamar a la función para obtener proveedores cuando se muestre esta vista
+    }
 }
+
 
 
 function set_buttons_modal_info(type, typeBtn){
@@ -124,6 +126,43 @@ async function addToFavorites(idProduct){
         console.error('Error fetching products:', error);
     }
 }
+
+async function get_proveedores() {
+    try {
+        const url = `../webapi/products/get_proveedores`; // URL a la API para obtener los proveedores
+
+        const options = {
+            method: 'GET',
+        };
+
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const proveedores = await response.json();
+        update_providers_list(proveedores); // Llamada para actualizar la lista de proveedores
+
+    } catch (error) {
+        console.error('Error al obtener los proveedores:', error);
+    }
+}
+function update_providers_list(proveedores) {
+    const tbody = document.querySelector('#providers_table tbody');
+    tbody.innerHTML = ''; // Limpiar contenido previo
+
+    proveedores.forEach(provider => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${provider.name || 'No disponible'}</td>
+            <td>${provider.phone || 'No disponible'}</td>
+            <td>${provider.email || 'No disponible'}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+
 
 async function removeFromFavorites(){
 
